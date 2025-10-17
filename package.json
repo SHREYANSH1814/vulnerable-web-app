@@ -1,0 +1,22 @@
+{
+  "name": "vulnerable-app",
+  "version": "1.0.0",
+  "description": "A deliberately vulnerable Node.js application",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.16.0",
+    "lodash": "4.17.11",
+    "mongoose": "5.7.5",
+    "node-serialize": "0.0.4",
+    "jquery": "3.3.1",
+    "handlebars": "4.0.14",
+    "minimist": "1.2.0"
+  }
+}
