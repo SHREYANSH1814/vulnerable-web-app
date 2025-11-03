@@ -16,6 +16,8 @@ const TWILIO_AUTH_TOKEN = '9c5e36884dfasefasefasefasefasefasef3a';
 const GITHUB_PERSONAL_ACCESS_TOKEN = 'ghp_aBcDeFgHiJkLmNoPqRsTuVwXyZ0123456789';
 const SLACK_BOT_TOKEN = 'xoxb-123456789012-123456789012-ABCDEFghijklmnopQRSTUVwxyz';
 const MAILCHIMP_API_KEY = '1234567890abcdef1234567890abcdef-us20';
+const MAILCHIMP_API_KEY2 = '1234567890abcdef1234567890abcdef-us20';
+
 
 // OAuth credentials
 const GOOGLE_OAUTH_CLIENT_SECRET = 'GOCSPX-1234567890abcdefghijklmnopqrstuvwxyz';
