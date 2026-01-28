@@ -62,7 +62,17 @@ app.get('/search', (req, res) => {
   const query = req.query.q;
   // Simulating SQL injection vulnerability
   const sqlQuery = `SELECT * FROM products WHERE name LIKE '%${query}%'`;
-  res.send(`Query executed: ${sqlQuery}`);
+const sanitizedInput = escapeHtml(userInput);
+res.send(sanitizedInput);
+
+function escapeHtml(unsafe) {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 });
 
 // Vulnerability 8: Path traversal
