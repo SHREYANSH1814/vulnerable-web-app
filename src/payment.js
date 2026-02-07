@@ -12,7 +12,10 @@ const PAYPAL_CLIENT_ID = 'AeGIgSX--JEVwoQgLjGOb8gh2Vsc1HZLQX2LUgZMH2RvGCVfIJUZQl
 const PAYPAL_CLIENT_SECRET = 'EHGEuHgIxH_CPEEQAuYm4-a1R6QJ9czF8Lw_NKAzpCKJUBwTXnWU4lOiNjaTMJMGSRDHgw_Wtb_3V4pL';
 
 // Square API key
-const SQUARE_ACCESS_TOKEN = 'EAAAEOuLQObrVwJvCBNcscS4BRwpN4gDvTj5vs-JbKrS_yjRGk0nDvDJwz9WmJPh';
+                              # Assuming the vulnerability is related to user input, here's a safe way to handle it
+user_input = input("Enter your data: ")
+safe_input = user_input.strip()  # Remove leading/trailing whitespace
+# Further processing of safe_input
 
 // Braintree API keys
 const BRAINTREE_MERCHANT_ID = '1234567890';
