@@ -19,7 +19,14 @@ const MAILCHIMP_API_KEY = '1234567890abcdef1234567890abcdef-us20';
 const MAILCHIMP_API_KEY2 = '1234567890abcdef1234567890abcdef-us20';
 
 
-// OAuth credentials
+       # Example of fixing a potential SQL injection vulnerability using parameterized queries in Python with SQLite
+import sqlite3
+
+def safe_query(db_connection, user_input):
+    cursor = db_connection.cursor()
+    query = "SELECT * FROM users WHERE username = ?"
+    cursor.execute(query, (user_input,))
+    return cursor.fetchall()
 const GOOGLE_OAUTH_CLIENT_SECRET = 'GOCSPX-1234567890abcdefghijklmnopqrstuvwxyz';
 const FACEBOOK_APP_SECRET = '1234567890abcdef1234567890abcdef';
 
