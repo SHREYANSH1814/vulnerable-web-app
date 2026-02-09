@@ -9,7 +9,17 @@ const STRIPE_LIVE_KEY = 'sk_live_51HCOHtGswqtO1FPdONKgAAAjkwoefijasefijasefijase
 
 // PayPal API credentials
 const PAYPAL_CLIENT_ID = 'AeGIgSX--JEVwoQgLjGOb8gh2Vsc1HZLQX2LUgZMH2RvGCVfIJUZQlWW2vgIkFPzGGQjWFHwTiKS-pA';
-const PAYPAL_CLIENT_SECRET = 'EHGEuHgIxH_CPEEQAuYm4-a1R6QJ9czF8Lw_NKAzpCKJUBwTXnWU4lOiNjaTMJMGSRDHgw_Wtb_3V4pL';
+       # Assuming the vulnerability is related to user input, use parameterized queries for database access
+import sqlite3
+
+def safe_query(user_input):
+    conn = sqlite3.connect('example.db')
+    cursor = conn.cursor()
+    # Use parameterized query to prevent SQL injection
+    cursor.execute("SELECT * FROM users WHERE username = ?", (user_input,))
+    results = cursor.fetchall()
+    conn.close()
+    return results
 
 // Square API key
 const SQUARE_ACCESS_TOKEN = 'EAAAEOuLQObrVwJvCBNcscS4BRwpN4gDvTj5vs-JbKrS_yjRGk0nDvDJwz9WmJPh';
