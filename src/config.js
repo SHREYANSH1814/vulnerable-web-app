@@ -16,7 +16,14 @@ const TWILIO_AUTH_TOKEN = '9c5e36884dfasefasefasefasefasefasef3a';
 const GITHUB_PERSONAL_ACCESS_TOKEN = 'ghp_aBcDeFgHiJkLmNoPqRsTuVwXyZ0123456789';
 const SLACK_BOT_TOKEN = 'xoxb-123456789012-123456789012-ABCDEFghijklmnopQRSTUVwxyz';
 const MAILCHIMP_API_KEY = '1234567890abcdef1234567890abcdef-us20';
-const MAILCHIMP_API_KEY2 = '1234567890abcdef1234567890abcdef-us20';
+      # Example of fixing a potential SQL injection vulnerability in Python using parameterized queries
+import sqlite3
+
+def safe_query(db_connection, user_input):
+    cursor = db_connection.cursor()
+    # Use parameterized queries to prevent SQL injection
+    cursor.execute("SELECT * FROM users WHERE username = ?", (user_input,))
+    return cursor.fetchall()
 
 
 // OAuth credentials
