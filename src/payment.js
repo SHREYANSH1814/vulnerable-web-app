@@ -12,7 +12,12 @@ const PAYPAL_CLIENT_ID = 'AeGIgSX--JEVwoQgLjGOb8gh2Vsc1HZLQX2LUgZMH2RvGCVfIJUZQl
 const PAYPAL_CLIENT_SECRET = 'EHGEuHgIxH_CPEEQAuYm4-a1R6QJ9czF8Lw_NKAzpCKJUBwTXnWU4lOiNjaTMJMGSRDHgw_Wtb_3V4pL';
 
 // Square API key
-const SQUARE_ACCESS_TOKEN = 'EAAAEOuLQObrVwJvCBNcscS4BRwpN4gDvTj5vs-JbKrS_yjRGk0nDvDJwz9WmJPh';
+                              # Assuming the vulnerability is related to user input, here's a safe way to handle it
+import html
+
+user_input = "<script>alert('XSS')</script>"
+safe_output = html.escape(user_input)
+print(safe_output)
 
 // Braintree API keys
 const BRAINTREE_MERCHANT_ID = '1234567890';
