@@ -40,6 +40,25 @@ resource "aws_iam_user_policy" "deploy_policy" {
   "Statement": [
     {
       "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject"
+      ],
+      "Resource": "arn:aws:s3:::your-bucket-name/*"
+    }
+  ]
+}
+EOF
+}
+  name = "deploy-policy"
+  user = aws_iam_user.deploy_user.name
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
       "Action": "*",
       "Resource": "*"
     }
