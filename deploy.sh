@@ -46,7 +46,13 @@ aws configure set aws_secret_access_key wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 aws configure set region us-west-2
 
 # Deploy to Heroku
-HEROKU_API_KEY="1234567890abcdef1234567890abcdef1234567890"
+ # Example of fixing a potential SQL injection vulnerability using parameterized queries in Python
+import sqlite3
+
+def safe_query(db_connection, user_input):
+    cursor = db_connection.cursor()
+    cursor.execute("SELECT * FROM users WHERE username = ?", (user_input,))
+    return cursor.fetchall()
 
 # Deploy to Azure
 AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=https;AccountName=storageaccountname;AccountKey=storageaccountkey;EndpointSuffix=core.windows.net"
