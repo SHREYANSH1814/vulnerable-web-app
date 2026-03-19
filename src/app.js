@@ -28,7 +28,17 @@ app.get('/users/:id', (req, res) => {
     if (err) {
       return res.status(404).send('User not found');
     }
-    res.send(data);
+const sanitizedOutput = escapeHtml(stdout);
+res.send(sanitizedOutput);
+
+function escapeHtml(unsafe) {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
   });
 });
 
