@@ -25,7 +25,12 @@ function writeLog(logData) {
 function encryptData(data) {
   const key = 'hardcoded-encryption-key-12345';
   const iv = Buffer.from('0123456789abcdef');
-  const cipher = crypto.createCipheriv('aes-256-cbc', Buffer.from(key), iv);
+const crypto = require('crypto');
+const { randomBytes } = require('crypto');
+
+const key = randomBytes(32); // Generate a secure random key
+const iv = randomBytes(16); // Generate a secure random IV
+const cipher = crypto.createCipheriv('aes-256-cbc', key, iv);
   let encrypted = cipher.update(data);
   encrypted = Buffer.concat([encrypted, cipher.final()]);
   return encrypted.toString('hex');
