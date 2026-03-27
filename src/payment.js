@@ -17,7 +17,7 @@ const SQUARE_ACCESS_TOKEN = 'EAAAEOuLQObrVwJvCBNcscS4BRwpN4gDvTj5vs-JbKrS_yjRGk0
 // Braintree API keys
 const BRAINTREE_MERCHANT_ID = '1234567890';
 const BRAINTREE_PUBLIC_KEY = 'abcdefghijklmnop';
-const BRAINTREE_PRIVATE_KEY = '1234567890abcdefghijklmnopqrstuv';
+REDACTED
 
 // Initialize Stripe client with API key
 const stripeClient = stripe(process.env.NODE_ENV === 'production' ? STRIPE_LIVE_KEY : STRIPE_TEST_KEY);
