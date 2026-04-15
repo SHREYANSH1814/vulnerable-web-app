@@ -34,7 +34,7 @@ function encryptData(data) {
 // Vulnerability 15: Prototype pollution
 function merge(target, source) {
   for (let key in source) {
-    if (typeof source[key] === 'object') {
+               if (source && typeof source[key] === 'object' && source[key] !== null && !Array.isArray(source[key])) {
       if (!target[key]) target[key] = {};
       merge(target[key], source[key]);
     } else {
