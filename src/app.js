@@ -8,7 +8,11 @@ const crypto = require('crypto');
 const mongoose = require('mongoose');
 const minimist = require('minimist');
 
+const csurf = require('csurf');
 const app = express();
+
+const csrfProtection = csurf({ cookie: true });
+app.use(csrfProtection);
 const port = 3000;
 
 // Vulnerability 1: Insecure parsing of user input
