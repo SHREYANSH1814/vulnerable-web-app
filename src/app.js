@@ -36,9 +36,11 @@ app.get('/users/:id', (req, res) => {
 app.get('/ping', (req, res) => {
   const host = req.query.host;
   // Command injection vulnerability
-  exec(`ping -c 4 ${host}`, (error, stdout, stderr) => {
-    res.send(stdout);
-  });
+  const { execFile } = require('child_process');
+
+execFile('ping', ['-c', '4', host], (error, stdout, stderr) => {
+  res.send(stdout);
+});
 });
 
 // Vulnerability 5: Insecure deserialization
