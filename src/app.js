@@ -1,6 +1,7 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
+// REQUIRES IMPORT: const csurf = require('csurf');
+const app = express();
+const csrfProtection = csurf(); // Initialize CSRF protection middleware
+app.use(csrfProtection); // Use CSRF protection middleware in the application
 const fs = require('fs');
 const serialize = require('node-serialize');
 const { exec } = require('child_process');
