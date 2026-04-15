@@ -1,6 +1,5 @@
-const fs = require('fs');
-const { exec } = require('child_process');
-const crypto = require('crypto');
+// REQUIRES IMPORT: <import statement>
+if (typeof source[key] === 'object' && source[key] !== null && !Array.isArray(source[key])) {
 
 // Vulnerability 11: Insecure random number generation
 function generateToken() {
