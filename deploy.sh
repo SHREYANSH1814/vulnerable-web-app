@@ -1,6 +1,12 @@
-#!/bin/bash
+// REQUIRES IMPORT: os
+// REQUIRES IMPORT: dotenv
 
-# Deployment script with hardcoded secrets
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+HEROKU_API_KEY = os.getenv("HEROKU_API_KEY")
 # WARNING: This file contains deliberately exposed secrets for educational purposes
 
 # SSH credentials
