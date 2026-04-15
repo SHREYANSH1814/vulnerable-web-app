@@ -46,7 +46,9 @@ aws configure set aws_secret_access_key wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 aws configure set region us-west-2
 
 # Deploy to Heroku
-HEROKU_API_KEY="1234567890abcdef1234567890abcdef1234567890"
+       import os
+
+os.environ['HEROKU_API_KEY'] = "1234567890abcdef1234567890abcdef1234567890"
 
 # Deploy to Azure
 AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=https;AccountName=storageaccountname;AccountKey=storageaccountkey;EndpointSuffix=core.windows.net"
