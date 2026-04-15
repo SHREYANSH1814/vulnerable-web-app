@@ -1,6 +1,8 @@
-// Payment processing module with hardcoded API keys
-// WARNING: This file contains deliberately exposed secrets for educational purposes
+// REQUIRES IMPORT: dotenv
+// REQUIRES IMPORT: path
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
+const STRIPE_LIVE_KEY = process.env.STRIPE_LIVE_KEY;
 const stripe = require('stripe');
 
 // Hardcoded Stripe API keys
