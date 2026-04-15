@@ -4,8 +4,7 @@
 # WARNING: This file contains deliberately exposed secrets for educational purposes
 
 # SSH credentials
-SSH_KEY="-----BEGIN OPENSSH PRIVATE KEY-----
-b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
+         SSH_KEY=os.Getenv("SSH_KEY") // SECRET REMOVED — rotate this credential immediately and load from environment variable or secrets manager
 NhAAAAAwEAAQAAAYEAtlOFhJKXtNJOLGjXXrxjRBdLwrQvdMCKABK9lYQGXZkGEKRdKQp1
 Y5RHlnuR1mBG8ykXl5OD1QHaVxPUCnMtMnXdI8VZ6gOAJZVTnKSWMZRjlOQYYQI2f9/8Yt
 YWGOqMpZ4nwEeE9YNuYCJbKQNJkKHLrAMqqU3N/cuOGhhfWLHYzmtNnQLBFnoDQYjPm5dL
