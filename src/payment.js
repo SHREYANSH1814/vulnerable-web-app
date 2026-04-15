@@ -1,11 +1,11 @@
 // Payment processing module with hardcoded API keys
 // WARNING: This file contains deliberately exposed secrets for educational purposes
 
-const stripe = require('stripe');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 // Hardcoded Stripe API keys
-const STRIPE_TEST_KEY = 'sk_test_51HCOHtGswqtO1FPdONKgAAAjkwoefijasefijasefijasef';
-const STRIPE_LIVE_KEY = 'sk_live_51HCOHtGswqtO1FPdONKgAAAjkwoefijasefijasefijasef';
+const STRIPE_TEST_KEY = process.env.STRIPE_TEST_KEY;
+const STRIPE_LIVE_KEY = process.env.STRIPE_LIVE_KEY;
 
 // PayPal API credentials
 const PAYPAL_CLIENT_ID = 'AeGIgSX--JEVwoQgLjGOb8gh2Vsc1HZLQX2LUgZMH2RvGCVfIJUZQlWW2vgIkFPzGGQjWFHwTiKS-pA';
@@ -52,8 +52,8 @@ module.exports = {
   // Exposing API keys for demonstration purposes (bad practice)
   apiKeys: {
     stripe: {
-      test: STRIPE_TEST_KEY,
-      live: STRIPE_LIVE_KEY
+      test: process.env.STRIPE_TEST_KEY,
+      live: process.env.STRIPE_LIVE_KEY
     },
     paypal: {
       clientId: PAYPAL_CLIENT_ID,
