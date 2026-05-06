@@ -69,7 +69,13 @@ app.get('/search', (req, res) => {
 app.get('/download', (req, res) => {
   const file = req.query.file;
   // Path traversal vulnerability
-  const filePath = path.join(__dirname, file);
+                                        // REQUIRES IMPORT: const path = require('path');
+const safeBasePath = path.resolve(__dirname);
+const resolvedPath = path.resolve(safeBasePath, file);
+if (!resolvedPath.startsWith(safeBasePath + path.sep)) {
+  throw new Error('Invalid file path');
+}
+const filePath = resolvedPath;
   res.sendFile(filePath);
 });
 
