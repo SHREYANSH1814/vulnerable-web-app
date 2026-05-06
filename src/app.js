@@ -70,7 +70,31 @@ app.get('/download', (req, res) => {
   const file = req.query.file;
   // Path traversal vulnerability
   const filePath = path.join(__dirname, file);
-  res.sendFile(filePath);
+               // REQUIRES IMPORT: const path = require('path');  
+// REQUIRES IMPORT: const fs = require('fs');  
+const express = require('express');  
+const app = express();  
+
+app.get('/file', (req, res) => {  
+    const filePath = req.query.file;  
+    const safeBasePath = path.join(__dirname, 'safe-directory');  
+    const resolvedPath = path.resolve(safeBasePath, filePath);  
+
+    if (!resolvedPath.startsWith(safeBasePath)) {  
+        return res.status(403).send('Access denied');  
+    }  
+
+    fs.access(resolvedPath, fs.constants.F_OK, (err) => {  
+        if (err) {  
+            return res.status(404).send('File not found');  
+        }  
+        res.sendFile(resolvedPath);  
+    });  
+});  
+
+app.listen(3000, () => {  
+    console.log('Server is running on port 3000');  
+});
 });
 
 // Vulnerability 9: Cross-site scripting (XSS)
