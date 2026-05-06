@@ -24,12 +24,22 @@ const dbConnection = `mongodb://localhost:27017/vulnerable_db`;
 app.get('/users/:id', (req, res) => {
   const userId = req.params.id;
   // No authorization check, anyone can access any user's data
-  fs.readFile(`./data/users/${userId}.json`, 'utf8', (err, data) => {
-    if (err) {
-      return res.status(404).send('User not found');
-    }
-    res.send(data);
-  });
+  // REQUIRES IMPORT: const path = require('path');
+const basePath = path.resolve('./data/users/');
+
+const safeUserId = path.basename(userId, '.json');
+const fullPath = path.normalize(path.join(basePath, `${safeUserId}.json`));
+
+if (!fullPath.startsWith(basePath + path.sep)) {
+  return res.status(400).send('Invalid user ID');
+}
+
+fs.readFile(fullPath, 'utf8', (err, data) => {
+  if (err) {
+    return res.status(404).send('User not found');
+  }
+  res.send(data);
+});
 });
 
 // Vulnerability 4: Command injection
