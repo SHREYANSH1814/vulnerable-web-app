@@ -6,7 +6,7 @@ provider "aws" {
 
 resource "aws_s3_bucket" "app_bucket" {
   bucket = "vulnerable-app-storage"
-  acl    = "public-read"  # Insecure ACL setting
+  acl    = "private"  # Secure ACL setting to prevent public read access
 }
 
 resource "aws_db_instance" "app_database" {
