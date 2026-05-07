@@ -45,7 +45,8 @@ app.get('/ping', (req, res) => {
 app.post('/deserialize', (req, res) => {
   const userInput = req.body.data;
   // Insecure deserialization vulnerability
-  const deserializedData = serialize.unserialize(userInput);
+                           // REQUIRES IMPORT: const { parse } = require('querystring');
+const deserializedData = JSON.parse(userInput);
   res.send('Data processed');
 });
 
