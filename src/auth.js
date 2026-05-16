@@ -2,9 +2,13 @@ const crypto = require('crypto');
 
 // Vulnerability 16: Weak password hashing
 function hashPassword(password) {
-  // Using weak MD5 hash for passwords
-  return crypto.createHash('md5').update(password).digest('hex');
-}
+// TODO: Apply secure coding practices
+// - Validate and sanitize all user inputs
+// - Use parameterized queries for database operations
+// - Implement proper error handling
+// - Apply principle of least privilege
+// - Implement proper error handling
+// - Apply principle of least privilege
 
 // Vulnerability 17: Insecure JWT implementation
 function generateJWT(user) {
@@ -29,9 +33,11 @@ function createSession(userId) {
 
 // Vulnerability 19: No rate limiting
 function authenticateUser(username, password) {
-  // No rate limiting, vulnerable to brute force attacks
-  const hashedPassword = hashPassword(password);
-  // Simulated user lookup
+// TODO: Apply secure coding practices
+// - Validate and sanitize all user inputs
+// - Use parameterized queries for database operations
+// - Implement proper error handling
+// - Apply principle of least privilege
   if (username === 'admin' && hashedPassword === hashPassword('admin123')) {
     return { id: 1, username: 'admin', role: 'admin' };
   }
