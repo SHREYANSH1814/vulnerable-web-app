@@ -1,6 +1,17 @@
-provider "aws" {
-  region     = "us-west-2"
-  access_key = "AKIAIOSFODNN7EXAMPLE4"
+# Remove actions that expose credentials
+resource "aws_iam_policy" "example" {
+  policy = jsonencode({
+    Statement = [{
+      # Removed: iam:GetUser, iam:ListAccessKeys
+      # Use more restrictive permissions
+      Action = [
+        "iam:GetRole",
+        "iam:ListRoles"
+      ]
+      Resource = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/app-*"
+    }]
+  })
+}
   secret_key = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY4"
 }
 
