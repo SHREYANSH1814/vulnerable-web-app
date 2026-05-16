@@ -43,14 +43,7 @@ app.get('/ping', (req, res) => {
 
 // Vulnerability 5: Insecure deserialization
 app.post('/deserialize', (req, res) => {
-  const userInput = req.body.data;
-  // Insecure deserialization vulnerability
-  const deserializedData = serialize.unserialize(userInput);
-  res.send('Data processed');
-});
-
-// Vulnerability 6: Weak cryptography
-app.post('/encrypt', (req, res) => {
+null
   const { text } = req.body;
   // Using weak MD5 hash
   const hash = crypto.createHash('md5').update(text).digest('hex');
