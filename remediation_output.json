@@ -1,0 +1,11 @@
+{
+  "NkDEv7xSL7lr2js9yFfE0d": {
+    "title": "Deserialization: Use of Unsafe Library",
+    "severity": "Critical",
+    "type": "SAST",
+    "status": "SUCCESS",
+    "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/350",
+    "prNumber": "350",
+    "branch": "security/fix-nkdev7xsl7-deserialization-use-of-unsafe-library-wh"
+  }
+}
