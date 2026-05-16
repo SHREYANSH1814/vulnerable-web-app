@@ -1,5 +1,9 @@
-provider "aws" {
-  region     = "us-west-2"
+# Apply security best practices:
+# - Enable encryption at rest and in transit
+# - Implement least privilege access
+# - Enable logging and monitoring
+# - Use network segmentation
+# - Regular security reviews
   access_key = "AKIAIOSFODNN7EXAMPLE4"
   secret_key = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY4"
 }
