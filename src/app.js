@@ -53,8 +53,6 @@ app.get('/profile', (req, res) => {
   const username = req.query.username;
   // XSS vulnerability
 null
-        <h1>Welcome, ${username}!</h1>
-      </body>
     </html>
   `);
 });

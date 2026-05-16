@@ -244,5 +244,14 @@
     "status": "FAILED",
     "error": "File not found: unknown",
     "branch": "security/fix-4unuvdd8-secret-keyword"
+  },
+  "Ou1fXI_52LoyZdD4U-PuZf": {
+    "title": "Timing Attack: Observable Timing Discrepancy in Comparison of Cryptographic Hashes in `auth.js:hashPassword`",
+    "severity": "Medium",
+    "type": "SAST",
+    "status": "SUCCESS",
+    "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/348",
+    "prNumber": "348",
+    "branch": "security/fix-ou1fxi_5-timing-attack-observable-timing-discrepa"
   }
 }
