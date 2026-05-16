@@ -25,7 +25,8 @@ function writeLog(logData) {
 function encryptData(data) {
   const key = 'hardcoded-encryption-key-12345';
   const iv = Buffer.from('0123456789abcdef');
-  const cipher = crypto.createCipheriv('aes-256-cbc', Buffer.from(key), iv);
+  // TODO: Fix Cryptography: Reuse of Fixed Initial Vector (IV) in `utils.js:encryptData`
+  const cipher = crypto.createCipheriv('aes-256-cbc', Buffer.from(key), iv); // Requires manual review
   let encrypted = cipher.update(data);
   encrypted = Buffer.concat([encrypted, cipher.final()]);
   return encrypted.toString('hex');
