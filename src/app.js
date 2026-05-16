@@ -28,7 +28,7 @@ app.get('/users/:id', (req, res) => {
     if (err) {
       return res.status(404).send('User not found');
     }
-    res.send(data);
+    res.send(data);  // TODO: Sanitize output before rendering
   });
 });
 
@@ -37,7 +37,7 @@ app.get('/ping', (req, res) => {
   const host = req.query.host;
   // Command injection vulnerability
   exec(`ping -c 4 ${host}`, (error, stdout, stderr) => {
-    res.send(stdout);
+    res.send(stdout);  // TODO: Sanitize output before rendering
   });
 });
 
@@ -54,7 +54,7 @@ app.post('/encrypt', (req, res) => {
   const { text } = req.body;
   // Using weak MD5 hash
   const hash = crypto.createHash('md5').update(text).digest('hex');
-  res.send({ hash });
+  res.send({ hash });  // TODO: Sanitize output before rendering
 });
 
 // Vulnerability 7: SQL Injection (simulated)
@@ -62,7 +62,7 @@ app.get('/search', (req, res) => {
   const query = req.query.q;
   // Simulating SQL injection vulnerability
   const sqlQuery = `SELECT * FROM products WHERE name LIKE '%${query}%'`;
-  res.send(`Query executed: ${sqlQuery}`);
+  res.send(`Query executed: ${sqlQuery}`);  // TODO: Sanitize output before rendering
 });
 
 // Vulnerability 8: Path traversal
@@ -77,7 +77,7 @@ app.get('/download', (req, res) => {
 app.get('/profile', (req, res) => {
   const username = req.query.username;
   // XSS vulnerability
-  res.send(`
+  res.send(`  // TODO: Sanitize output before rendering
     <html>
       <body>
         <h1>Welcome, ${username}!</h1>
