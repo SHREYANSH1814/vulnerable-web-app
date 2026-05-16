@@ -53,7 +53,8 @@ app.post('/deserialize', (req, res) => {
 app.post('/encrypt', (req, res) => {
   const { text } = req.body;
   // Using weak MD5 hash
-  const hash = crypto.createHash('md5').update(text).digest('hex');
+  // TODO: Fix Weak Hash: Authentication Data Hashed With Cryptographic Hash Function Not Meant for Passwords for `password` in `auth.js:authe…
+  const hash = crypto.createHash('md5').update(text).digest('hex'); // Requires manual review
   res.send({ hash });
 });
 

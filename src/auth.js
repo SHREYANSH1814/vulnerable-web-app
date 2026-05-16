@@ -3,7 +3,8 @@ const crypto = require('crypto');
 // Vulnerability 16: Weak password hashing
 function hashPassword(password) {
   // Using weak MD5 hash for passwords
-  return crypto.createHash('md5').update(password).digest('hex');
+  // TODO: Fix Weak Hash: Authentication Data Hashed With Cryptographic Hash Function Not Meant for Passwords for `password` in `auth.js:authe…
+  return crypto.createHash('md5').update(password).digest('hex'); // Requires manual review
 }
 
 // Vulnerability 17: Insecure JWT implementation
