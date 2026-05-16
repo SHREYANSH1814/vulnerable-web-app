@@ -62,7 +62,7 @@ app.get('/search', (req, res) => {
   const query = req.query.q;
   // Simulating SQL injection vulnerability
   const sqlQuery = `SELECT * FROM products WHERE name LIKE '%${query}%'`;
-  res.send(`Query executed: ${sqlQuery}`);
+  res.send(`Query executed: ${sqlQuery}`);  // TODO: Sanitize output before rendering
 });
 
 // Vulnerability 8: Path traversal
@@ -77,7 +77,7 @@ app.get('/download', (req, res) => {
 app.get('/profile', (req, res) => {
   const username = req.query.username;
   // XSS vulnerability
-  res.send(`
+  res.send(`  // TODO: Sanitize output before rendering
     <html>
       <body>
         <h1>Welcome, ${username}!</h1>
