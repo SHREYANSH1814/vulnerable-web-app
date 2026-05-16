@@ -97,5 +97,14 @@
     "status": "FAILED",
     "error": "File not found: unknown",
     "branch": "security/fix-iglpmeyc-s3-bucket-has-an-acl-defined-which-allow"
+  },
+  "Q3vLP88zhqmP2oSw5DdqxU": {
+    "title": "Cross-Site Scripting: Attacker-Controlled Data Used as HTML Content via `req` in `app.js:<lambda>6`",
+    "severity": "High",
+    "type": "SAST",
+    "status": "SUCCESS",
+    "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/345",
+    "prNumber": "345",
+    "branch": "security/fix-q3vlp88z-cross-site-scripting-attacker-controlled"
   }
 }

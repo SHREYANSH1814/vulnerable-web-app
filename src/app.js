@@ -27,9 +27,7 @@ null
 // Vulnerability 4: Command injection
 app.get('/ping', (req, res) => {
   const host = req.query.host;
-  // Command injection vulnerability
-  exec(`ping -c 4 ${host}`, (error, stdout, stderr) => {
-    res.send(stdout);
+null
   });
 });
 
@@ -38,9 +36,7 @@ app.post('/deserialize', (req, res) => {
   const userInput = req.body.data;
   // Insecure deserialization vulnerability
   const deserializedData = serialize.unserialize(userInput);
-  res.send('Data processed');
-});
-
+null
 // Vulnerability 6: Weak cryptography
 app.post('/encrypt', (req, res) => {
   const { text } = req.body;
@@ -55,17 +51,13 @@ app.get('/search', (req, res) => {
   // Simulating SQL injection vulnerability
   const sqlQuery = `SELECT * FROM products WHERE name LIKE '%${query}%'`;
   res.send(`Query executed: ${sqlQuery}`);
-});
-null
 null
 
 // Vulnerability 9: Cross-site scripting (XSS)
 app.get('/profile', (req, res) => {
   const username = req.query.username;
   // XSS vulnerability
-  res.send(`
-    <html>
-      <body>
+null
         <h1>Welcome, ${username}!</h1>
       </body>
     </html>
