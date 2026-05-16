@@ -56,11 +56,11 @@ app.post('/encrypt', (req, res) => {
   const hash = crypto.createHash('md5').update(text).digest('hex');
   res.send({ hash });
 });
-
-// Vulnerability 7: SQL Injection (simulated)
-app.get('/search', (req, res) => {
-  const query = req.query.q;
-  // Simulating SQL injection vulnerability
+// Escape HTML to prevent XSS
+const escapeHtml = (str) => str.replace(/[&<>"']/g, (m) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+})[m]);
+res.send(`<div>${escapeHtml(userInput)}</div>`);
   const sqlQuery = `SELECT * FROM products WHERE name LIKE '%${query}%'`;
   res.send(`Query executed: ${sqlQuery}`);
 });
@@ -72,11 +72,11 @@ app.get('/download', (req, res) => {
   const filePath = path.join(__dirname, file);
   res.sendFile(filePath);
 });
-
-// Vulnerability 9: Cross-site scripting (XSS)
-app.get('/profile', (req, res) => {
-  const username = req.query.username;
-  // XSS vulnerability
+// Escape HTML to prevent XSS
+const escapeHtml = (str) => str.replace(/[&<>"']/g, (m) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+})[m]);
+res.send(`<div>${escapeHtml(userInput)}</div>`);
   res.send(`
     <html>
       <body>
