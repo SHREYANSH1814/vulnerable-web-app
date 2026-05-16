@@ -45,6 +45,10 @@ app.get('/ping', (req, res) => {
 app.post('/deserialize', (req, res) => {
   const userInput = req.body.data;
   // Insecure deserialization vulnerability
+  // Validate serialized data before unserializing
+  if (!$this->isValidSerializedData($data)) {
+      throw new Exception('Invalid serialized data');
+  }
   const deserializedData = serialize.unserialize(userInput);
   res.send('Data processed');
 });
