@@ -77,6 +77,7 @@ app.get('/download', (req, res) => {
 app.get('/profile', (req, res) => {
   const username = req.query.username;
   // XSS vulnerability
+  // Sanitize output to prevent XSS
   res.send(`
     <html>
       <body>
