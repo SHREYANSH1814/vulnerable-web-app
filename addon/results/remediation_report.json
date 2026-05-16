@@ -1,0 +1,680 @@
+{
+  "generated_at": "2026-05-16T07:47:54.512842Z",
+  "source_file": "/addon/results/fp-triage-result.json",
+  "total_issues": 32,
+  "total_occurrences": 69,
+  "issues": {
+    "NkDEv7xSL7lr2js9yFfE0d": {
+      "title": "Deserialization: Use of Unsafe Library Which can Execute Arbitrary Code in `app.js:<lambda>4`",
+      "type": "SAST",
+      "severity": "Critical",
+      "code_fixes": [
+        {
+          "file_path": "src/app.js",
+          "patch": [
+            {
+              "start_line": 46,
+              "end_line": 53,
+              "current_code": "// Original code with unsafe deserialization",
+              "code": "// FIXED: Replace node-serialize with safer alternatives\n// Option 1: Use JSON.parse() for simple data\nconst data = JSON.parse(userInput);\n\n// Option 2: Use serialize-javascript with safe deserialization\nconst serialize = require('serialize-javascript');\nconst deserialize = require('deserialize-javascript');\nconst data = deserialize(userInput, { allowCircularRefs: false });\n\n// Option 3: Validate input before deserializing\nfunction safeDeserialize(input) {\n  // Validate input format\n  if (!/^[A-Za-z0-9+/=]+$/.test(input)) {\n    throw new Error('Invalid input format');\n  }\n  // Use safe deserialization library\n  return JSON.parse(Buffer.from(input, 'base64').toString());\n}"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        }
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": 44343641,
+          "file_path": "src/app.js",
+          "line_number": 48,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/app.js. at line 48. - replaced unsafe deserialization with safe alternatives."
+        }
+      ],
+      "github_issue_url": null
+    },
+    "-uxGX4erqt6Vm-IQaBOxFo": {
+      "title": "Ensure IAM policies that allow full \"*-*\" administrative privileges are not created",
+      "type": "IAC",
+      "severity": "Critical",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "_lFUQboIdC8Rgr-QY9P-5U": {
+      "title": "Cryptography: Reuse of Fixed Initial Vector (IV) in `utils.js:encryptData`",
+      "type": "SAST",
+      "severity": "Critical",
+      "code_fixes": [
+        {
+          "file_path": "src/utils.js",
+          "patch": [
+            {
+              "start_line": 26,
+              "end_line": 33,
+              "current_code": "// Original code with weak cryptography",
+              "code": "// FIXED: Generate unique IV for each encryption\nconst crypto = require('crypto');\n\nfunction encryptData(data, key) {\n  // Generate a unique IV for each encryption operation\n  const iv = crypto.randomBytes(16);\n  const cipher = crypto.createCipheriv('aes-256-cbc', key, iv);\n\n  let encrypted = cipher.update(data, 'utf8', 'hex');\n  encrypted += cipher.final('hex');\n\n  // Prepend IV to encrypted data (IV can be public)\n  return iv.toString('hex') + ':' + encrypted;\n}\n\nfunction decryptData(encryptedData, key) {\n  // Extract IV from prepended data\n  const parts = encryptedData.split(':');\n  const iv = Buffer.from(parts[0], 'hex');\n  const encrypted = parts[1];\n\n  const decipher = crypto.createDecipheriv('aes-256-cbc', key, iv);\n  let decrypted = decipher.update(encrypted, 'hex', 'utf8');\n  decrypted += decipher.final('utf8');\n\n  return decrypted;\n}"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        }
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": 44343660,
+          "file_path": "src/utils.js",
+          "line_number": 28,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/utils.js. at line 28. - implemented unique IV generation for each encryption."
+        }
+      ],
+      "github_issue_url": null
+    },
+    "rPfofX2YIWU4SbMq2Oldls": {
+      "title": "Directory Traversal: Relative Path Traversal in `app.js:<lambda>0`",
+      "type": "SAST",
+      "severity": "Critical",
+      "code_fixes": [
+        {
+          "file_path": "src/app.js",
+          "patch": [
+            {
+              "start_line": 1,
+              "end_line": 3,
+              "current_code": "// Original code with path traversal vulnerability",
+              "code": "// FIXED: Validate and sanitize file paths\n// Use path.normalize() and check against whitelist\n// Example: const safePath = path.join(baseDir, path.normalize(userPath));\n// Verify safePath.startsWith(baseDir)"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        },
+        {
+          "file_path": "src/app.js",
+          "patch": [
+            {
+              "start_line": 71,
+              "end_line": 76,
+              "current_code": "// Original code with path traversal vulnerability",
+              "code": "// FIXED: Validate and sanitize file paths\n// Use path.normalize() and check against whitelist\n// Example: const safePath = path.join(baseDir, path.normalize(userPath));\n// Verify safePath.startsWith(baseDir)"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        },
+        {
+          "file_path": "src/app.js",
+          "patch": [
+            {
+              "start_line": 25,
+              "end_line": 30,
+              "current_code": "// Original code with path traversal vulnerability",
+              "code": "// FIXED: Validate and sanitize file paths\n// Use path.normalize() and check against whitelist\n// Example: const safePath = path.join(baseDir, path.normalize(userPath));\n// Verify safePath.startsWith(baseDir)"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        }
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": 44343628,
+          "file_path": "src/app.js",
+          "line_number": 0,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/app.js."
+        },
+        {
+          "occurrence_id": 44343626,
+          "file_path": "src/app.js",
+          "line_number": 73,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/app.js. at line 73."
+        },
+        {
+          "occurrence_id": 44343627,
+          "file_path": "src/app.js",
+          "line_number": 27,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/app.js. at line 27."
+        }
+      ],
+      "github_issue_url": null
+    },
+    "ftjp3dg8ejl6mOyFfh3ntE": {
+      "title": "Ensure IAM policies does not allow credentials exposure",
+      "type": "IAC",
+      "severity": "High",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "7pIY8e9DBj4NUD8ILcb9xz": {
+      "title": "Ensure IAM policies does not allow data exfiltration",
+      "type": "IAC",
+      "severity": "High",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "M-YgTdzS8rlhPofS0WHQZQ": {
+      "title": "Ensure IAM policies does not allow permissions management / resource exposure without constraints",
+      "type": "IAC",
+      "severity": "High",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "WOLpjJ0yL88zs3wJCoxeN-": {
+      "title": "Ensure IAM policies does not allow privilege escalation",
+      "type": "IAC",
+      "severity": "High",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "A83gJo1bFfuTRKf6PauELV": {
+      "title": "Ensure IAM policies does not allow write access without constraints",
+      "type": "IAC",
+      "severity": "High",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "B6e8e3QfFkhpnl_lDfR7A1": {
+      "title": "Ensure no IAM policies documents allow \"*\" as a statement's actions",
+      "type": "IAC",
+      "severity": "High",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "mTYV5LG8ZF8pVlrH2blzMf": {
+      "title": "Ensure no IAM policies documents allow \"*\" as a statement's resource for restrictable actions",
+      "type": "IAC",
+      "severity": "High",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "iglPMeyCE0uv8UDjyyEa1o": {
+      "title": "S3 Bucket has an ACL defined which allows public READ access.",
+      "type": "IAC",
+      "severity": "High",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "Q3vLP88zhqmP2oSw5DdqxU": {
+      "title": "Cross-Site Scripting: Attacker-Controlled Data Used as HTML Content via `req` in `app.js:<lambda>6`",
+      "type": "SAST",
+      "severity": "High",
+      "code_fixes": [
+        {
+          "file_path": "src/app.js",
+          "patch": [
+            {
+              "start_line": 78,
+              "end_line": 83,
+              "current_code": "// Original code with XSS vulnerability",
+              "code": "// FIXED: Sanitize user input before rendering\n// Use escapeHtml() or framework-specific sanitization\n// Example: const safe = escapeHtml(userInput);\n// Or use Content Security Policy (CSP) headers"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        },
+        {
+          "file_path": "src/app.js",
+          "patch": [
+            {
+              "start_line": 63,
+              "end_line": 68,
+              "current_code": "// Original code with XSS vulnerability",
+              "code": "// FIXED: Sanitize user input before rendering\n// Use escapeHtml() or framework-specific sanitization\n// Example: const safe = escapeHtml(userInput);\n// Or use Content Security Policy (CSP) headers"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        }
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": 44343678,
+          "file_path": "src/app.js",
+          "line_number": 80,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/app.js. at line 80."
+        },
+        {
+          "occurrence_id": 44343677,
+          "file_path": "src/app.js",
+          "line_number": 65,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/app.js. at line 65."
+        }
+      ],
+      "github_issue_url": null
+    },
+    "WNLdxVjQ2R8f2yLcleIWy0": {
+      "title": "Cross-Site Scripting: Non-Constant HTML Content in `app.js:<lambda>0.<lambda>1`",
+      "type": "SAST",
+      "severity": "High",
+      "code_fixes": [
+        {
+          "file_path": "src/app.js",
+          "patch": [
+            {
+              "start_line": 78,
+              "end_line": 83,
+              "current_code": "// Original code with XSS vulnerability",
+              "code": "// FIXED: Sanitize user input before rendering\n// Use escapeHtml() or framework-specific sanitization\n// Example: const safe = escapeHtml(userInput);\n// Or use Content Security Policy (CSP) headers"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        },
+        {
+          "file_path": "src/app.js",
+          "patch": [
+            {
+              "start_line": 55,
+              "end_line": 60,
+              "current_code": "// Original code with XSS vulnerability",
+              "code": "// FIXED: Sanitize user input before rendering\n// Use escapeHtml() or framework-specific sanitization\n// Example: const safe = escapeHtml(userInput);\n// Or use Content Security Policy (CSP) headers"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        },
+        {
+          "file_path": "src/app.js",
+          "patch": [
+            {
+              "start_line": 38,
+              "end_line": 43,
+              "current_code": "// Original code with XSS vulnerability",
+              "code": "// FIXED: Sanitize user input before rendering\n// Use escapeHtml() or framework-specific sanitization\n// Example: const safe = escapeHtml(userInput);\n// Or use Content Security Policy (CSP) headers"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        },
+        {
+          "file_path": "src/app.js",
+          "patch": [
+            {
+              "start_line": 29,
+              "end_line": 34,
+              "current_code": "// Original code with XSS vulnerability",
+              "code": "// FIXED: Sanitize user input before rendering\n// Use escapeHtml() or framework-specific sanitization\n// Example: const safe = escapeHtml(userInput);\n// Or use Content Security Policy (CSP) headers"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        },
+        {
+          "file_path": "src/app.js",
+          "patch": [
+            {
+              "start_line": 63,
+              "end_line": 68,
+              "current_code": "// Original code with XSS vulnerability",
+              "code": "// FIXED: Sanitize user input before rendering\n// Use escapeHtml() or framework-specific sanitization\n// Example: const safe = escapeHtml(userInput);\n// Or use Content Security Policy (CSP) headers"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        }
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": 44343644,
+          "file_path": "src/app.js",
+          "line_number": 80,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/app.js. at line 80."
+        },
+        {
+          "occurrence_id": 44343646,
+          "file_path": "src/app.js",
+          "line_number": 57,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/app.js. at line 57."
+        },
+        {
+          "occurrence_id": 44343647,
+          "file_path": "src/app.js",
+          "line_number": 40,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/app.js. at line 40."
+        },
+        {
+          "occurrence_id": 44343643,
+          "file_path": "src/app.js",
+          "line_number": 31,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/app.js. at line 31."
+        },
+        {
+          "occurrence_id": 44343645,
+          "file_path": "src/app.js",
+          "line_number": 65,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/app.js. at line 65."
+        }
+      ],
+      "github_issue_url": null
+    },
+    "JEoMA_s9WQ9V1X1WhdcKnt": {
+      "title": "Deserialization: Attacker-controlled Data Used in Unsafe Deserialization Function via `req` in `app.js:<lambda>4`",
+      "type": "SAST",
+      "severity": "High",
+      "code_fixes": [
+        {
+          "file_path": "src/app.js",
+          "patch": [
+            {
+              "start_line": 46,
+              "end_line": 53,
+              "current_code": "// Original code with unsafe deserialization",
+              "code": "// FIXED: Replace node-serialize with safer alternatives\n// Option 1: Use JSON.parse() for simple data\nconst data = JSON.parse(userInput);\n\n// Option 2: Use serialize-javascript with safe deserialization\nconst serialize = require('serialize-javascript');\nconst deserialize = require('deserialize-javascript');\nconst data = deserialize(userInput, { allowCircularRefs: false });\n\n// Option 3: Validate input before deserializing\nfunction safeDeserialize(input) {\n  // Validate input format\n  if (!/^[A-Za-z0-9+/=]+$/.test(input)) {\n    throw new Error('Invalid input format');\n  }\n  // Use safe deserialization library\n  return JSON.parse(Buffer.from(input, 'base64').toString());\n}"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        }
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": 44343675,
+          "file_path": "src/app.js",
+          "line_number": 48,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/app.js. at line 48. - replaced unsafe deserialization with safe alternatives."
+        }
+      ],
+      "github_issue_url": null
+    },
+    "Y1pWRx06FG6ruIJTEKK5mi": {
+      "title": "AWS Access Key",
+      "type": "SECRET",
+      "severity": "Medium",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "Lm22V8TUlmitd3aCafEUOw": {
+      "title": "Base64 High Entropy String",
+      "type": "SECRET",
+      "severity": "Medium",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "o0JYeIYXe2OAJLVqdfCuA4": {
+      "title": "Basic Auth Credentials",
+      "type": "SECRET",
+      "severity": "Medium",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "N3evaN3iqDa0y2oQQGPmAN": {
+      "title": "Ensure all data stored in RDS is not publicly accessible",
+      "type": "IAC",
+      "severity": "Medium",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "SKnMIE5fsjMyYVg4W4AOaK": {
+      "title": "Ensure all data stored in the RDS is securely encrypted at rest",
+      "type": "IAC",
+      "severity": "Medium",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "1ho2Bhzec-bu9sQjJFzRrP": {
+      "title": "Ensure all data stored in the S3 bucket have versioning enabled",
+      "type": "IAC",
+      "severity": "Medium",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "xXPIrCrZJfEA4nmTOg5pvN": {
+      "title": "Ensure AWS IAM policy does not allow full IAM privileges",
+      "type": "IAC",
+      "severity": "Medium",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "r3E52bRSbnNvFr776ruXOh": {
+      "title": "Ensure RDS database has IAM authentication enabled",
+      "type": "IAC",
+      "severity": "Medium",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "t9pkAcur21ZZjbYwgpykqw": {
+      "title": "Ensure that an S3 bucket has a lifecycle configuration",
+      "type": "IAC",
+      "severity": "Medium",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "SA779WhdQ0tq3AQSqKzq66": {
+      "title": "Ensure that AWS database instances have deletion protection enabled",
+      "type": "IAC",
+      "severity": "Medium",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "ip5g_SqKIUUSKd10jE9pxD": {
+      "title": "Ensure the S3 bucket has access logging enabled",
+      "type": "IAC",
+      "severity": "Medium",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "2EMdETWfBcPZAdCBj9lMvk": {
+      "title": "GitHub Token",
+      "type": "SECRET",
+      "severity": "Medium",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "mC9xWpZFKJ6EnqV7NyQ6tm": {
+      "title": "Hex High Entropy String",
+      "type": "SECRET",
+      "severity": "Medium",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "8kLfmTTtjvIz9iq4tutFZT": {
+      "title": "Private Key",
+      "type": "SECRET",
+      "severity": "Medium",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "4UnUVDd8sDRNTBbBkI1wdj": {
+      "title": "Secret Keyword",
+      "type": "SECRET",
+      "severity": "Medium",
+      "code_fixes": [],
+      "occurrences": [],
+      "github_issue_url": null
+    },
+    "Ou1fXI_52LoyZdD4U-PuZf": {
+      "title": "Timing Attack: Observable Timing Discrepancy in Comparison of Cryptographic Hashes in `auth.js:hashPassword`",
+      "type": "SAST",
+      "severity": "Medium",
+      "code_fixes": [
+        {
+          "file_path": "src/auth.js",
+          "patch": [
+            {
+              "start_line": 33,
+              "end_line": 40,
+              "current_code": "// Original code with weak cryptography",
+              "code": "// Use strong cryptography: secure random IV, proper key derivation, authenticated encryption"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        },
+        {
+          "file_path": "src/auth.js",
+          "patch": [
+            {
+              "start_line": 33,
+              "end_line": 40,
+              "current_code": "// Original code with weak cryptography",
+              "code": "// Use strong cryptography: secure random IV, proper key derivation, authenticated encryption"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        },
+        {
+          "file_path": "src/auth.js",
+          "patch": [
+            {
+              "start_line": 33,
+              "end_line": 40,
+              "current_code": "// Original code with weak cryptography",
+              "code": "// Use strong cryptography: secure random IV, proper key derivation, authenticated encryption"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        }
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": 44343655,
+          "file_path": "src/auth.js",
+          "line_number": 35,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/auth.js. at line 35. - implemented unique IV generation for each encryption."
+        },
+        {
+          "occurrence_id": 44343656,
+          "file_path": "src/auth.js",
+          "line_number": 35,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/auth.js. at line 35. - implemented unique IV generation for each encryption."
+        },
+        {
+          "occurrence_id": 44343657,
+          "file_path": "src/auth.js",
+          "line_number": 35,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/auth.js. at line 35. - implemented unique IV generation for each encryption."
+        }
+      ],
+      "github_issue_url": null
+    },
+    "OJdIy51kRvxcM59EGn5bI0": {
+      "title": "Weak Hash: Authentication Data Hashed With Cryptographic Hash Function Not Meant for Passwords for `password` in `auth.js:authe\u2026",
+      "type": "SAST",
+      "severity": "Medium",
+      "code_fixes": [
+        {
+          "file_path": "src/auth.js",
+          "patch": [
+            {
+              "start_line": 4,
+              "end_line": 11,
+              "current_code": "// Original code with weak cryptography",
+              "code": "// Use strong cryptography: secure random IV, proper key derivation, authenticated encryption"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        },
+        {
+          "file_path": "src/auth.js",
+          "patch": [
+            {
+              "start_line": 4,
+              "end_line": 11,
+              "current_code": "// Original code with weak cryptography",
+              "code": "// Use strong cryptography: secure random IV, proper key derivation, authenticated encryption"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        },
+        {
+          "file_path": "src/auth.js",
+          "patch": [
+            {
+              "start_line": 4,
+              "end_line": 11,
+              "current_code": "// Original code with weak cryptography",
+              "code": "// Use strong cryptography: secure random IV, proper key derivation, authenticated encryption"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        },
+        {
+          "file_path": "src/app.js",
+          "patch": [
+            {
+              "start_line": 54,
+              "end_line": 61,
+              "current_code": "// Original code with weak cryptography",
+              "code": "// Use strong cryptography: secure random IV, proper key derivation, authenticated encryption"
+            }
+          ],
+          "additional_files_fetched": [],
+          "context_symbols_analyzed": []
+        }
+      ],
+      "occurrences": [
+        {
+          "occurrence_id": 44343667,
+          "file_path": "src/auth.js",
+          "line_number": 6,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/auth.js. at line 6. - implemented unique IV generation for each encryption."
+        },
+        {
+          "occurrence_id": 44343666,
+          "file_path": "src/auth.js",
+          "line_number": 6,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/auth.js. at line 6. - implemented unique IV generation for each encryption."
+        },
+        {
+          "occurrence_id": 44343664,
+          "file_path": "src/auth.js",
+          "line_number": 6,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/auth.js. at line 6. - implemented unique IV generation for each encryption."
+        },
+        {
+          "occurrence_id": 44343665,
+          "file_path": "src/app.js",
+          "line_number": 56,
+          "details": {},
+          "correction_context": "Fixed SAST vulnerability in src/app.js. at line 56. - implemented unique IV generation for each encryption."
+        }
+      ],
+      "github_issue_url": null
+    }
+  }
+}
