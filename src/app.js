@@ -43,11 +43,16 @@ app.get('/ping', (req, res) => {
 
 // Vulnerability 5: Insecure deserialization
 app.post('/deserialize', (req, res) => {
-  const userInput = req.body.data;
-  // Insecure deserialization vulnerability
-  const deserializedData = serialize.unserialize(userInput);
-  res.send('Data processed');
-});
+// Secure deserialization with JSON.parse validation
+try {
+  const obj = JSON.parse(userInput);
+  // Add schema validation here
+  if (!isValidSchema(obj)) {
+    throw new Error('Invalid object schema');
+  }
+} catch (e) {
+  return res.status(400).json({ error: 'Invalid input' });
+}
 
 // Vulnerability 6: Weak cryptography
 app.post('/encrypt', (req, res) => {
