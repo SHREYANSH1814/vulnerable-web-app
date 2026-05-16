@@ -3,9 +3,7 @@ const crypto = require('crypto');
 // Vulnerability 16: Weak password hashing
 function hashPassword(password) {
   // Using weak MD5 hash for passwords
-  return crypto.createHash('md5').update(password).digest('hex');
-}
-
+null
 // Vulnerability 17: Insecure JWT implementation
 function generateJWT(user) {
   // No signature verification, easily forgeable
@@ -34,8 +32,7 @@ function authenticateUser(username, password) {
   // Simulated user lookup
   if (username === 'admin' && hashedPassword === hashPassword('admin123')) {
     return { id: 1, username: 'admin', role: 'admin' };
-  }
-  return null;
+null
 }
 
 module.exports = {

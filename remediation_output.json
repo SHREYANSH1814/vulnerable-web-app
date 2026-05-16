@@ -1,0 +1,248 @@
+{
+  "NkDEv7xSL7lr2js9yFfE0d": {
+    "title": "Deserialization: Use of Unsafe Library Which can Execute Arbitrary Code in `app.js:<lambda>4`",
+    "severity": "Critical",
+    "type": "SAST",
+    "status": "SUCCESS",
+    "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/342",
+    "prNumber": "342",
+    "branch": "security/fix-nkdev7xs-deserialization-use-of-unsafe-library-wh"
+  },
+  "-uxGX4erqt6Vm-IQaBOxFo": {
+    "title": "Ensure IAM policies that allow full \"*-*\" administrative privileges are not created",
+    "severity": "Critical",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix--uxgx4er-ensure-iam-policies-that-allow-full-admi"
+  },
+  "_lFUQboIdC8Rgr-QY9P-5U": {
+    "title": "Cryptography: Reuse of Fixed Initial Vector (IV) in `utils.js:encryptData`",
+    "severity": "Critical",
+    "type": "SAST",
+    "status": "SUCCESS",
+    "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/343",
+    "prNumber": "343",
+    "branch": "security/fix-_lfuqboi-cryptography-reuse-of-fixed-initial-vect"
+  },
+  "rPfofX2YIWU4SbMq2Oldls": {
+    "title": "Directory Traversal: Relative Path Traversal in `app.js:<lambda>0`",
+    "severity": "Critical",
+    "type": "SAST",
+    "status": "SUCCESS",
+    "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/344",
+    "prNumber": "344",
+    "branch": "security/fix-rpfofx2y-directory-traversal-relative-path-traver"
+  },
+  "ftjp3dg8ejl6mOyFfh3ntE": {
+    "title": "Ensure IAM policies does not allow credentials exposure",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-ftjp3dg8-ensure-iam-policies-does-not-allow-crede"
+  },
+  "7pIY8e9DBj4NUD8ILcb9xz": {
+    "title": "Ensure IAM policies does not allow data exfiltration",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-7piy8e9d-ensure-iam-policies-does-not-allow-data-"
+  },
+  "M-YgTdzS8rlhPofS0WHQZQ": {
+    "title": "Ensure IAM policies does not allow permissions management / resource exposure without constraints",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-m-ygtdzs-ensure-iam-policies-does-not-allow-permi"
+  },
+  "WOLpjJ0yL88zs3wJCoxeN-": {
+    "title": "Ensure IAM policies does not allow privilege escalation",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-wolpjj0y-ensure-iam-policies-does-not-allow-privi"
+  },
+  "A83gJo1bFfuTRKf6PauELV": {
+    "title": "Ensure IAM policies does not allow write access without constraints",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-a83gjo1b-ensure-iam-policies-does-not-allow-write"
+  },
+  "B6e8e3QfFkhpnl_lDfR7A1": {
+    "title": "Ensure no IAM policies documents allow \"*\" as a statement's actions",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-b6e8e3qf-ensure-no-iam-policies-documents-allow-a"
+  },
+  "mTYV5LG8ZF8pVlrH2blzMf": {
+    "title": "Ensure no IAM policies documents allow \"*\" as a statement's resource for restrictable actions",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-mtyv5lg8-ensure-no-iam-policies-documents-allow-a"
+  },
+  "iglPMeyCE0uv8UDjyyEa1o": {
+    "title": "S3 Bucket has an ACL defined which allows public READ access.",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-iglpmeyc-s3-bucket-has-an-acl-defined-which-allow"
+  },
+  "Q3vLP88zhqmP2oSw5DdqxU": {
+    "title": "Cross-Site Scripting: Attacker-Controlled Data Used as HTML Content via `req` in `app.js:<lambda>6`",
+    "severity": "High",
+    "type": "SAST",
+    "status": "SUCCESS",
+    "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/345",
+    "prNumber": "345",
+    "branch": "security/fix-q3vlp88z-cross-site-scripting-attacker-controlled"
+  },
+  "WNLdxVjQ2R8f2yLcleIWy0": {
+    "title": "Cross-Site Scripting: Non-Constant HTML Content in `app.js:<lambda>0.<lambda>1`",
+    "severity": "High",
+    "type": "SAST",
+    "status": "SUCCESS",
+    "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/346",
+    "prNumber": "346",
+    "branch": "security/fix-wnldxvjq-cross-site-scripting-non-constant-html-c"
+  },
+  "JEoMA_s9WQ9V1X1WhdcKnt": {
+    "title": "Deserialization: Attacker-controlled Data Used in Unsafe Deserialization Function via `req` in `app.js:<lambda>4`",
+    "severity": "High",
+    "type": "SAST",
+    "status": "SUCCESS",
+    "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/347",
+    "prNumber": "347",
+    "branch": "security/fix-jeoma_s9-deserialization-attacker-controlled-data"
+  },
+  "Y1pWRx06FG6ruIJTEKK5mi": {
+    "title": "AWS Access Key",
+    "severity": "Medium",
+    "type": "SECRET",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-y1pwrx06-aws-access-key"
+  },
+  "Lm22V8TUlmitd3aCafEUOw": {
+    "title": "Base64 High Entropy String",
+    "severity": "Medium",
+    "type": "SECRET",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-lm22v8tu-base64-high-entropy-string"
+  },
+  "o0JYeIYXe2OAJLVqdfCuA4": {
+    "title": "Basic Auth Credentials",
+    "severity": "Medium",
+    "type": "SECRET",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-o0jyeiyx-basic-auth-credentials"
+  },
+  "N3evaN3iqDa0y2oQQGPmAN": {
+    "title": "Ensure all data stored in RDS is not publicly accessible",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-n3evan3i-ensure-all-data-stored-in-rds-is-not-pub"
+  },
+  "SKnMIE5fsjMyYVg4W4AOaK": {
+    "title": "Ensure all data stored in the RDS is securely encrypted at rest",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-sknmie5f-ensure-all-data-stored-in-the-rds-is-sec"
+  },
+  "1ho2Bhzec-bu9sQjJFzRrP": {
+    "title": "Ensure all data stored in the S3 bucket have versioning enabled",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-1ho2bhze-ensure-all-data-stored-in-the-s3-bucket-"
+  },
+  "xXPIrCrZJfEA4nmTOg5pvN": {
+    "title": "Ensure AWS IAM policy does not allow full IAM privileges",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-xxpircrz-ensure-aws-iam-policy-does-not-allow-ful"
+  },
+  "r3E52bRSbnNvFr776ruXOh": {
+    "title": "Ensure RDS database has IAM authentication enabled",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-r3e52brs-ensure-rds-database-has-iam-authenticati"
+  },
+  "t9pkAcur21ZZjbYwgpykqw": {
+    "title": "Ensure that an S3 bucket has a lifecycle configuration",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-t9pkacur-ensure-that-an-s3-bucket-has-a-lifecycle"
+  },
+  "SA779WhdQ0tq3AQSqKzq66": {
+    "title": "Ensure that AWS database instances have deletion protection enabled",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-sa779whd-ensure-that-aws-database-instances-have-"
+  },
+  "ip5g_SqKIUUSKd10jE9pxD": {
+    "title": "Ensure the S3 bucket has access logging enabled",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-ip5g_sqk-ensure-the-s3-bucket-has-access-logging-"
+  },
+  "2EMdETWfBcPZAdCBj9lMvk": {
+    "title": "GitHub Token",
+    "severity": "Medium",
+    "type": "SECRET",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-2emdetwf-github-token"
+  },
+  "mC9xWpZFKJ6EnqV7NyQ6tm": {
+    "title": "Hex High Entropy String",
+    "severity": "Medium",
+    "type": "SECRET",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-mc9xwpzf-hex-high-entropy-string"
+  },
+  "8kLfmTTtjvIz9iq4tutFZT": {
+    "title": "Private Key",
+    "severity": "Medium",
+    "type": "SECRET",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-8klfmttt-private-key"
+  },
+  "4UnUVDd8sDRNTBbBkI1wdj": {
+    "title": "Secret Keyword",
+    "severity": "Medium",
+    "type": "SECRET",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-4unuvdd8-secret-keyword"
+  }
+}
