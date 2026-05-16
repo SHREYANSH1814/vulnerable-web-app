@@ -69,6 +69,9 @@ app.get('/search', (req, res) => {
 app.get('/download', (req, res) => {
   const file = req.query.file;
   // Path traversal vulnerability
+  # Validate path to prevent traversal
+  if '..' in filename or filename.startswith('/'):
+      raise ValueError('Invalid filename')
   const filePath = path.join(__dirname, file);
   res.sendFile(filePath);
 });
