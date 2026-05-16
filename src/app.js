@@ -57,9 +57,7 @@ app.get('/search', (req, res) => {
   res.send(`Query executed: ${sqlQuery}`);
 });
 null
-  const filePath = path.join(__dirname, file);
-  res.sendFile(filePath);
-});
+null
 
 // Vulnerability 9: Cross-site scripting (XSS)
 app.get('/profile', (req, res) => {
@@ -75,9 +73,7 @@ app.get('/profile', (req, res) => {
 });
 
 // Vulnerability 10: Insecure parsing of command line arguments
-const args = minimist(process.argv.slice(2));
-const debug = args.debug || false;
-
+null
 if (debug) {
   // Exposing sensitive information in debug mode
   console.log('Database credentials:', { dbUser, dbPassword });

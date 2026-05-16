@@ -24,5 +24,78 @@
     "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/343",
     "prNumber": "343",
     "branch": "security/fix-_lfuqboi-cryptography-reuse-of-fixed-initial-vect"
+  },
+  "rPfofX2YIWU4SbMq2Oldls": {
+    "title": "Directory Traversal: Relative Path Traversal in `app.js:<lambda>0`",
+    "severity": "Critical",
+    "type": "SAST",
+    "status": "SUCCESS",
+    "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/344",
+    "prNumber": "344",
+    "branch": "security/fix-rpfofx2y-directory-traversal-relative-path-traver"
+  },
+  "ftjp3dg8ejl6mOyFfh3ntE": {
+    "title": "Ensure IAM policies does not allow credentials exposure",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-ftjp3dg8-ensure-iam-policies-does-not-allow-crede"
+  },
+  "7pIY8e9DBj4NUD8ILcb9xz": {
+    "title": "Ensure IAM policies does not allow data exfiltration",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-7piy8e9d-ensure-iam-policies-does-not-allow-data-"
+  },
+  "M-YgTdzS8rlhPofS0WHQZQ": {
+    "title": "Ensure IAM policies does not allow permissions management / resource exposure without constraints",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-m-ygtdzs-ensure-iam-policies-does-not-allow-permi"
+  },
+  "WOLpjJ0yL88zs3wJCoxeN-": {
+    "title": "Ensure IAM policies does not allow privilege escalation",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-wolpjj0y-ensure-iam-policies-does-not-allow-privi"
+  },
+  "A83gJo1bFfuTRKf6PauELV": {
+    "title": "Ensure IAM policies does not allow write access without constraints",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-a83gjo1b-ensure-iam-policies-does-not-allow-write"
+  },
+  "B6e8e3QfFkhpnl_lDfR7A1": {
+    "title": "Ensure no IAM policies documents allow \"*\" as a statement's actions",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-b6e8e3qf-ensure-no-iam-policies-documents-allow-a"
+  },
+  "mTYV5LG8ZF8pVlrH2blzMf": {
+    "title": "Ensure no IAM policies documents allow \"*\" as a statement's resource for restrictable actions",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-mtyv5lg8-ensure-no-iam-policies-documents-allow-a"
+  },
+  "iglPMeyCE0uv8UDjyyEa1o": {
+    "title": "S3 Bucket has an ACL defined which allows public READ access.",
+    "severity": "High",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-iglpmeyc-s3-bucket-has-an-acl-defined-which-allow"
   }
 }
