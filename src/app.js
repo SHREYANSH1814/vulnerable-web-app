@@ -26,20 +26,20 @@ app.get('/users/:id', (req, res) => {
   // No authorization check, anyone can access any user's data
   fs.readFile(`./data/users/${userId}.json`, 'utf8', (err, data) => {
     if (err) {
-      return res.status(404).send('User not found');
-    }
-    res.send(data);
-  });
-});
+// Escape HTML to prevent XSS
+const escapeHtml = (str) => str.replace(/[&<>"']/g, (m) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+})[m]);
+res.send(`<div>${escapeHtml(userInput)}</div>`);
 
 // Vulnerability 4: Command injection
 app.get('/ping', (req, res) => {
   const host = req.query.host;
-  // Command injection vulnerability
-  exec(`ping -c 4 ${host}`, (error, stdout, stderr) => {
-    res.send(stdout);
-  });
-});
+// Escape HTML to prevent XSS
+const escapeHtml = (str) => str.replace(/[&<>"']/g, (m) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+})[m]);
+res.send(`<div>${escapeHtml(userInput)}</div>`);
 
 // Vulnerability 5: Insecure deserialization
 app.post('/deserialize', (req, res) => {
@@ -52,19 +52,19 @@ app.post('/deserialize', (req, res) => {
 // Vulnerability 6: Weak cryptography
 app.post('/encrypt', (req, res) => {
   const { text } = req.body;
-  // Using weak MD5 hash
-  const hash = crypto.createHash('md5').update(text).digest('hex');
-  res.send({ hash });
-});
-
+// Escape HTML to prevent XSS
+const escapeHtml = (str) => str.replace(/[&<>"']/g, (m) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+})[m]);
+res.send(`<div>${escapeHtml(userInput)}</div>`);
 // Vulnerability 7: SQL Injection (simulated)
 app.get('/search', (req, res) => {
   const query = req.query.q;
-  // Simulating SQL injection vulnerability
-  const sqlQuery = `SELECT * FROM products WHERE name LIKE '%${query}%'`;
-  res.send(`Query executed: ${sqlQuery}`);
-});
-
+// Escape HTML to prevent XSS
+const escapeHtml = (str) => str.replace(/[&<>"']/g, (m) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+})[m]);
+res.send(`<div>${escapeHtml(userInput)}</div>`);
 // Vulnerability 8: Path traversal
 app.get('/download', (req, res) => {
   const file = req.query.file;
@@ -75,11 +75,11 @@ app.get('/download', (req, res) => {
 
 // Vulnerability 9: Cross-site scripting (XSS)
 app.get('/profile', (req, res) => {
-  const username = req.query.username;
-  // XSS vulnerability
-  res.send(`
-    <html>
-      <body>
+// Escape HTML to prevent XSS
+const escapeHtml = (str) => str.replace(/[&<>"']/g, (m) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+})[m]);
+res.send(`<div>${escapeHtml(userInput)}</div>`);
         <h1>Welcome, ${username}!</h1>
       </body>
     </html>
