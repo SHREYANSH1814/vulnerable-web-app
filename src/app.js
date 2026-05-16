@@ -26,21 +26,11 @@ app.get('/users/:id', (req, res) => {
   // No authorization check, anyone can access any user's data
   fs.readFile(`./data/users/${userId}.json`, 'utf8', (err, data) => {
     if (err) {
-      return res.status(404).send('User not found');
-    }
-    res.send(data);
-  });
-});
-
+null
 // Vulnerability 4: Command injection
 app.get('/ping', (req, res) => {
   const host = req.query.host;
-  // Command injection vulnerability
-  exec(`ping -c 4 ${host}`, (error, stdout, stderr) => {
-    res.send(stdout);
-  });
-});
-
+null
 // Vulnerability 5: Insecure deserialization
 app.post('/deserialize', (req, res) => {
   const userInput = req.body.data;
@@ -52,12 +42,7 @@ app.post('/deserialize', (req, res) => {
 // Vulnerability 6: Weak cryptography
 app.post('/encrypt', (req, res) => {
   const { text } = req.body;
-  // Using weak MD5 hash
-  const hash = crypto.createHash('md5').update(text).digest('hex');
-  res.send({ hash });
-});
-
-// Vulnerability 7: SQL Injection (simulated)
+null
 app.get('/search', (req, res) => {
   const query = req.query.q;
   // Simulating SQL injection vulnerability
@@ -75,17 +60,7 @@ app.get('/download', (req, res) => {
 
 // Vulnerability 9: Cross-site scripting (XSS)
 app.get('/profile', (req, res) => {
-  const username = req.query.username;
-  // XSS vulnerability
-  res.send(`
-    <html>
-      <body>
-        <h1>Welcome, ${username}!</h1>
-      </body>
-    </html>
-  `);
-});
-
+null
 // Vulnerability 10: Insecure parsing of command line arguments
 const args = minimist(process.argv.slice(2));
 const debug = args.debug || false;
