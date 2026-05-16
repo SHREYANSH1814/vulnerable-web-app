@@ -32,7 +32,8 @@ function authenticateUser(username, password) {
   // No rate limiting, vulnerable to brute force attacks
   const hashedPassword = hashPassword(password);
   // Simulated user lookup
-  if (username === 'admin' && hashedPassword === hashPassword('admin123')) {
+  // TODO: Fix Timing Attack: Observable Timing Discrepancy in Comparison of Cryptographic Hashes in `auth.js:hashPassword`
+  if (username === 'admin' && hashedPassword === hashPassword('admin123')) { // Requires manual review
     return { id: 1, username: 'admin', role: 'admin' };
   }
   return null;
