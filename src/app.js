@@ -60,12 +60,7 @@ app.post('/encrypt', (req, res) => {
 // Vulnerability 7: SQL Injection (simulated)
 app.get('/search', (req, res) => {
   const query = req.query.q;
-  // Simulating SQL injection vulnerability
-  const sqlQuery = `SELECT * FROM products WHERE name LIKE '%${query}%'`;
-  res.send(`Query executed: ${sqlQuery}`);
-});
-
-// Vulnerability 8: Path traversal
+null
 app.get('/download', (req, res) => {
   const file = req.query.file;
   // Path traversal vulnerability
@@ -75,12 +70,7 @@ app.get('/download', (req, res) => {
 
 // Vulnerability 9: Cross-site scripting (XSS)
 app.get('/profile', (req, res) => {
-  const username = req.query.username;
-  // XSS vulnerability
-  res.send(`
-    <html>
-      <body>
-        <h1>Welcome, ${username}!</h1>
+null
       </body>
     </html>
   `);
