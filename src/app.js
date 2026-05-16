@@ -1,6 +1,4 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
+null
 const fs = require('fs');
 const serialize = require('node-serialize');
 const { exec } = require('child_process');
@@ -24,12 +22,7 @@ const dbConnection = `mongodb://localhost:27017/vulnerable_db`;
 app.get('/users/:id', (req, res) => {
   const userId = req.params.id;
   // No authorization check, anyone can access any user's data
-  fs.readFile(`./data/users/${userId}.json`, 'utf8', (err, data) => {
-    if (err) {
-      return res.status(404).send('User not found');
-    }
-    res.send(data);
-  });
+null
 });
 
 // Vulnerability 4: Command injection
@@ -70,12 +63,7 @@ app.get('/download', (req, res) => {
   const file = req.query.file;
   // Path traversal vulnerability
   const filePath = path.join(__dirname, file);
-  res.sendFile(filePath);
-});
-
-// Vulnerability 9: Cross-site scripting (XSS)
-app.get('/profile', (req, res) => {
-  const username = req.query.username;
+null
   // XSS vulnerability
   res.send(`
     <html>
