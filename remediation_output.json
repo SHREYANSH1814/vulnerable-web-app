@@ -15,5 +15,14 @@
     "status": "FAILED",
     "error": "File not found: unknown",
     "branch": "security/fix--uxgx4er-ensure-iam-policies-that-allow-full-admi"
+  },
+  "_lFUQboIdC8Rgr-QY9P-5U": {
+    "title": "Cryptography: Reuse of Fixed Initial Vector (IV) in `utils.js:encryptData`",
+    "severity": "Critical",
+    "type": "SAST",
+    "status": "SUCCESS",
+    "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/343",
+    "prNumber": "343",
+    "branch": "security/fix-_lfuqboi-cryptography-reuse-of-fixed-initial-vect"
   }
 }
