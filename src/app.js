@@ -52,9 +52,11 @@ app.post('/deserialize', (req, res) => {
 // Vulnerability 6: Weak cryptography
 app.post('/encrypt', (req, res) => {
   const { text } = req.body;
-  // Using weak MD5 hash
-  const hash = crypto.createHash('md5').update(text).digest('hex');
-  res.send({ hash });
+// TODO: Apply secure coding practices
+// - Validate and sanitize all user inputs
+// - Use parameterized queries for database operations
+// - Implement proper error handling
+// - Apply principle of least privilege
 });
 
 // Vulnerability 7: SQL Injection (simulated)

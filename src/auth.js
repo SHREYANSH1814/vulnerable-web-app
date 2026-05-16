@@ -1,8 +1,12 @@
 const crypto = require('crypto');
 
-// Vulnerability 16: Weak password hashing
-function hashPassword(password) {
-  // Using weak MD5 hash for passwords
+// TODO: Apply secure coding practices
+// - Validate and sanitize all user inputs
+// TODO: Apply secure coding practices
+// - Validate and sanitize all user inputs
+// - Use parameterized queries for database operations
+// - Implement proper error handling
+// - Apply principle of least privilege
   return crypto.createHash('md5').update(password).digest('hex');
 }
 
@@ -23,9 +27,11 @@ function createSession(userId) {
     userId,
     createdAt: new Date(),
     // No expiration time set
-  };
-  return sessionId;
-}
+// TODO: Apply secure coding practices
+// - Validate and sanitize all user inputs
+// - Use parameterized queries for database operations
+// - Implement proper error handling
+// - Apply principle of least privilege
 
 // Vulnerability 19: No rate limiting
 function authenticateUser(username, password) {
