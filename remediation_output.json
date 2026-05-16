@@ -115,5 +115,134 @@
     "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/346",
     "prNumber": "346",
     "branch": "security/fix-wnldxvjq-cross-site-scripting-non-constant-html-c"
+  },
+  "JEoMA_s9WQ9V1X1WhdcKnt": {
+    "title": "Deserialization: Attacker-controlled Data Used in Unsafe Deserialization Function via `req` in `app.js:<lambda>4`",
+    "severity": "High",
+    "type": "SAST",
+    "status": "SUCCESS",
+    "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/347",
+    "prNumber": "347",
+    "branch": "security/fix-jeoma_s9-deserialization-attacker-controlled-data"
+  },
+  "Y1pWRx06FG6ruIJTEKK5mi": {
+    "title": "AWS Access Key",
+    "severity": "Medium",
+    "type": "SECRET",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-y1pwrx06-aws-access-key"
+  },
+  "Lm22V8TUlmitd3aCafEUOw": {
+    "title": "Base64 High Entropy String",
+    "severity": "Medium",
+    "type": "SECRET",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-lm22v8tu-base64-high-entropy-string"
+  },
+  "o0JYeIYXe2OAJLVqdfCuA4": {
+    "title": "Basic Auth Credentials",
+    "severity": "Medium",
+    "type": "SECRET",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-o0jyeiyx-basic-auth-credentials"
+  },
+  "N3evaN3iqDa0y2oQQGPmAN": {
+    "title": "Ensure all data stored in RDS is not publicly accessible",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-n3evan3i-ensure-all-data-stored-in-rds-is-not-pub"
+  },
+  "SKnMIE5fsjMyYVg4W4AOaK": {
+    "title": "Ensure all data stored in the RDS is securely encrypted at rest",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-sknmie5f-ensure-all-data-stored-in-the-rds-is-sec"
+  },
+  "1ho2Bhzec-bu9sQjJFzRrP": {
+    "title": "Ensure all data stored in the S3 bucket have versioning enabled",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-1ho2bhze-ensure-all-data-stored-in-the-s3-bucket-"
+  },
+  "xXPIrCrZJfEA4nmTOg5pvN": {
+    "title": "Ensure AWS IAM policy does not allow full IAM privileges",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-xxpircrz-ensure-aws-iam-policy-does-not-allow-ful"
+  },
+  "r3E52bRSbnNvFr776ruXOh": {
+    "title": "Ensure RDS database has IAM authentication enabled",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-r3e52brs-ensure-rds-database-has-iam-authenticati"
+  },
+  "t9pkAcur21ZZjbYwgpykqw": {
+    "title": "Ensure that an S3 bucket has a lifecycle configuration",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-t9pkacur-ensure-that-an-s3-bucket-has-a-lifecycle"
+  },
+  "SA779WhdQ0tq3AQSqKzq66": {
+    "title": "Ensure that AWS database instances have deletion protection enabled",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-sa779whd-ensure-that-aws-database-instances-have-"
+  },
+  "ip5g_SqKIUUSKd10jE9pxD": {
+    "title": "Ensure the S3 bucket has access logging enabled",
+    "severity": "Medium",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-ip5g_sqk-ensure-the-s3-bucket-has-access-logging-"
+  },
+  "2EMdETWfBcPZAdCBj9lMvk": {
+    "title": "GitHub Token",
+    "severity": "Medium",
+    "type": "SECRET",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-2emdetwf-github-token"
+  },
+  "mC9xWpZFKJ6EnqV7NyQ6tm": {
+    "title": "Hex High Entropy String",
+    "severity": "Medium",
+    "type": "SECRET",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-mc9xwpzf-hex-high-entropy-string"
+  },
+  "8kLfmTTtjvIz9iq4tutFZT": {
+    "title": "Private Key",
+    "severity": "Medium",
+    "type": "SECRET",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-8klfmttt-private-key"
+  },
+  "4UnUVDd8sDRNTBbBkI1wdj": {
+    "title": "Secret Keyword",
+    "severity": "Medium",
+    "type": "SECRET",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix-4unuvdd8-secret-keyword"
   }
 }
