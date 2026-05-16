@@ -19,18 +19,10 @@ app.use(bodyParser.json());
 const dbUser = 'admin';
 const dbPassword = 'super_secret_password123';
 const dbConnection = `mongodb://localhost:27017/vulnerable_db`;
-
-// Vulnerability 3: Insecure direct object references
-app.get('/users/:id', (req, res) => {
-  const userId = req.params.id;
-  // No authorization check, anyone can access any user's data
+null
   fs.readFile(`./data/users/${userId}.json`, 'utf8', (err, data) => {
     if (err) {
-      return res.status(404).send('User not found');
-    }
-    res.send(data);
-  });
-});
+null
 
 // Vulnerability 4: Command injection
 app.get('/ping', (req, res) => {
@@ -64,11 +56,7 @@ app.get('/search', (req, res) => {
   const sqlQuery = `SELECT * FROM products WHERE name LIKE '%${query}%'`;
   res.send(`Query executed: ${sqlQuery}`);
 });
-
-// Vulnerability 8: Path traversal
-app.get('/download', (req, res) => {
-  const file = req.query.file;
-  // Path traversal vulnerability
+null
   const filePath = path.join(__dirname, file);
   res.sendFile(filePath);
 });

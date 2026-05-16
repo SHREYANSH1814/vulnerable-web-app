@@ -1,0 +1,28 @@
+{
+  "NkDEv7xSL7lr2js9yFfE0d": {
+    "title": "Deserialization: Use of Unsafe Library Which can Execute Arbitrary Code in `app.js:<lambda>4`",
+    "severity": "Critical",
+    "type": "SAST",
+    "status": "SUCCESS",
+    "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/342",
+    "prNumber": "342",
+    "branch": "security/fix-nkdev7xs-deserialization-use-of-unsafe-library-wh"
+  },
+  "-uxGX4erqt6Vm-IQaBOxFo": {
+    "title": "Ensure IAM policies that allow full \"*-*\" administrative privileges are not created",
+    "severity": "Critical",
+    "type": "IAC",
+    "status": "FAILED",
+    "error": "File not found: unknown",
+    "branch": "security/fix--uxgx4er-ensure-iam-policies-that-allow-full-admi"
+  },
+  "_lFUQboIdC8Rgr-QY9P-5U": {
+    "title": "Cryptography: Reuse of Fixed Initial Vector (IV) in `utils.js:encryptData`",
+    "severity": "Critical",
+    "type": "SAST",
+    "status": "SUCCESS",
+    "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/343",
+    "prNumber": "343",
+    "branch": "security/fix-_lfuqboi-cryptography-reuse-of-fixed-initial-vect"
+  }
+}
