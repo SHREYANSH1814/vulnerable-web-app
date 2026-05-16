@@ -1,7 +1,21 @@
-provider "aws" {
-  region     = "us-west-2"
-  access_key = "AKIAIOSFODNN7EXAMPLE4"
-  secret_key = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY4"
+resource "aws_iam_policy" "least_privilege" {
+  policy = jsonencode({
+    Statement = [{
+      Effect = "Allow"
+      # Specify only required actions
+      Action = [
+        "s3:GetObject",
+        "s3:PutObject",
+        "dynamodb:GetItem",
+        "dynamodb:PutItem"
+      ]
+      # Limit to specific resources
+      Resource = [
+        "arn:aws:s3:::my-bucket/*",
+        "arn:aws:dynamodb:*:*:table/my-table"
+      ]
+    }]
+  })
 }
 
 resource "aws_s3_bucket" "app_bucket" {
