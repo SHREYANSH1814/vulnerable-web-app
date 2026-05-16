@@ -106,5 +106,14 @@
     "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/345",
     "prNumber": "345",
     "branch": "security/fix-q3vlp88z-cross-site-scripting-attacker-controlled"
+  },
+  "WNLdxVjQ2R8f2yLcleIWy0": {
+    "title": "Cross-Site Scripting: Non-Constant HTML Content in `app.js:<lambda>0.<lambda>1`",
+    "severity": "High",
+    "type": "SAST",
+    "status": "SUCCESS",
+    "prUrl": "https://github.com/SHREYANSH1814/vulnerable-web-app/pull/346",
+    "prNumber": "346",
+    "branch": "security/fix-wnldxvjq-cross-site-scripting-non-constant-html-c"
   }
 }

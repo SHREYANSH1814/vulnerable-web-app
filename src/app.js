@@ -40,12 +40,7 @@ null
 // Vulnerability 6: Weak cryptography
 app.post('/encrypt', (req, res) => {
   const { text } = req.body;
-  // Using weak MD5 hash
-  const hash = crypto.createHash('md5').update(text).digest('hex');
-  res.send({ hash });
-});
-
-// Vulnerability 7: SQL Injection (simulated)
+null
 app.get('/search', (req, res) => {
   const query = req.query.q;
   // Simulating SQL injection vulnerability
