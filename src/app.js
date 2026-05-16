@@ -19,14 +19,24 @@ app.use(bodyParser.json());
 const dbUser = 'admin';
 const dbPassword = 'super_secret_password123';
 const dbConnection = `mongodb://localhost:27017/vulnerable_db`;
-
-// Vulnerability 3: Insecure direct object references
-app.get('/users/:id', (req, res) => {
-  const userId = req.params.id;
-  // No authorization check, anyone can access any user's data
-  fs.readFile(`./data/users/${userId}.json`, 'utf8', (err, data) => {
-    if (err) {
-      return res.status(404).send('User not found');
+// Sanitize and validate file path
+const basename = path.basename(userInput);
+const filePath = path.join(__dirname, 'uploads', basename);
+// Ensure resolved path is within allowed directory
+const resolvedPath = path.resolve(filePath);
+const allowedDir = path.resolve(__dirname, 'uploads');
+if (!resolvedPath.startsWith(allowedDir)) {
+  return res.status(403).json({ error: 'Access denied' });
+}
+fs.readFile(resolvedPath, callback);
+const filePath = path.join(__dirname, 'uploads', basename);
+// Ensure resolved path is within allowed directory
+const resolvedPath = path.resolve(filePath);
+const allowedDir = path.resolve(__dirname, 'uploads');
+if (!resolvedPath.startsWith(allowedDir)) {
+  return res.status(403).json({ error: 'Access denied' });
+}
+fs.readFile(resolvedPath, callback);
     }
     res.send(data);
   });
@@ -59,11 +69,16 @@ app.post('/encrypt', (req, res) => {
 
 // Vulnerability 7: SQL Injection (simulated)
 app.get('/search', (req, res) => {
-  const query = req.query.q;
-  // Simulating SQL injection vulnerability
-  const sqlQuery = `SELECT * FROM products WHERE name LIKE '%${query}%'`;
-  res.send(`Query executed: ${sqlQuery}`);
-});
+// Sanitize and validate file path
+const basename = path.basename(userInput);
+const filePath = path.join(__dirname, 'uploads', basename);
+// Ensure resolved path is within allowed directory
+const resolvedPath = path.resolve(filePath);
+const allowedDir = path.resolve(__dirname, 'uploads');
+if (!resolvedPath.startsWith(allowedDir)) {
+  return res.status(403).json({ error: 'Access denied' });
+}
+fs.readFile(resolvedPath, callback);
 
 // Vulnerability 8: Path traversal
 app.get('/download', (req, res) => {
