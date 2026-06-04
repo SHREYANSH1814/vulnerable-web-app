@@ -36,7 +36,16 @@ app.get('/users/:id', (req, res) => {
 app.get('/ping', (req, res) => {
   const host = req.query.host;
   // Command injection vulnerability
-  exec(`ping -c 4 ${host}`, (error, stdout, stderr) => {
+       // REQUIRES IMPORT: const { exec } = require('child_process');  
+const host = req.query.host;  
+exec(`ping -c 4 ${host.replace(/[^a-zA-Z0-9.-]/g, '')}`, (error, stdout, stderr) => {  
+   if (error) {  
+       console.error(`exec error: ${error}`);  
+       return;  
+   }  
+   console.log(`stdout: ${stdout}`);  
+   console.error(`stderr: ${stderr}`);  
+});
     res.send(stdout);
   });
 });
