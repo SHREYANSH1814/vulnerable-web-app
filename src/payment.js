@@ -9,7 +9,18 @@ const STRIPE_LIVE_KEY = 'sk_live_51HCOHtGswqtO1FPdONKgAAAjkwoefijasefijasefijase
 
 // PayPal API credentials
 const PAYPAL_CLIENT_ID = 'AeGIgSX--JEVwoQgLjGOb8gh2Vsc1HZLQX2LUgZMH2RvGCVfIJUZQlWW2vgIkFPzGGQjWFHwTiKS-pA';
-const PAYPAL_CLIENT_SECRET = 'EHGEuHgIxH_CPEEQAuYm4-a1R6QJ9czF8Lw_NKAzpCKJUBwTXnWU4lOiNjaTMJMGSRDHgw_Wtb_3V4pL';
+// SECRET REMOVED — rotate this credential immediately and load from environment variable or secrets manager
+const apiKey = process.env.PAYMENT_API_KEY; // rotate this credential immediately and load from environment variable or secrets manager
+
+function processPayment(amount, currency) {
+  // Use the API key from environment variable
+  const headers = {
+    'Authorization': `Bearer ${apiKey}`,
+    'Content-Type': 'application/json'
+  };
+
+  // Payment processing logic here
+}
 
 // Square API key
 const SQUARE_ACCESS_TOKEN = 'EAAAEOuLQObrVwJvCBNcscS4BRwpN4gDvTj5vs-JbKrS_yjRGk0nDvDJwz9WmJPh';
