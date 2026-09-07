@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
 const serialize = require('node-serialize');
-const { exec } = require('child_process');
+const { execFile } = require('child_process');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
 const minimist = require('minimist');
@@ -35,8 +35,15 @@ app.get('/users/:id', (req, res) => {
 // Vulnerability 4: Command injection
 app.get('/ping', (req, res) => {
   const host = req.query.host;
-  // Command injection vulnerability
-  exec(`ping -c 4 ${host}`, (error, stdout, stderr) => {
+  // Command injection vulnerability fixed by using execFile with sanitized input
+  // Validate host input to allow only safe characters (alphanumeric, dots, hyphens)
+  if (!/^[a-zA-Z0-9.-]+$/.test(host)) {
+    return res.status(400).send('Invalid host parameter');
+  }
+  execFile('/bin/ping', ['-c', '4', host], (error, stdout, stderr) => {
+    if (error) {
+      return res.status(500).send(`Error executing ping: ${stderr}`);
+    }
     res.send(stdout);
   });
 });
