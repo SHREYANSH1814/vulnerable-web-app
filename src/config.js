@@ -2,59 +2,33 @@
 // WARNING: This file contains deliberately exposed secrets for educational purposes
 
 // AWS credentials
-const AWS_ACCESS_KEY_ID = 'AKIAIOSFODNN7EXAMPLE';
-const AWS_SECRET_ACCESS_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY';
-const AWS_ACCOUNT_ID = '123456789012';
+const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID; // rotate this credential immediately and load from environment variable
+const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY; // rotate this credential immediately and load from environment variable
+const AWS_ACCOUNT_ID = process.env.AWS_ACCOUNT_ID; // rotate this credential immediately and load from environment variable
 
 // Database connection strings
-const MONGODB_URI = 'mongodb+srv://admin:SuperSecretPassword123@cluster0.mongodb.net/vulnerable-db?retryWrites=true&w=majority';
-const POSTGRES_CONNECTION = 'postgresql://dbuser:dbpass123@database.server.com:5432/mydb';
+const MONGODB_URI = process.env.MONGODB_URI; // rotate this credential immediately and load from environment variable
+const POSTGRES_CONNECTION = process.env.POSTGRES_CONNECTION; // rotate this credential immediately and load from environment variable
 
 // API keys
-const STRIPE_API_KEY = 'sk_test_51HCOHtGswqtO1FPdONKgAAAjkwoefijasefijasefijasef';
-const TWILIO_AUTH_TOKEN = '9c5e36884dfasefasefasefasefasefasef3a';
-const GITHUB_PERSONAL_ACCESS_TOKEN = 'ghp_aBcDeFgHiJkLmNoPqRsTuVwXyZ0123456789';
-const SLACK_BOT_TOKEN = 'xoxb-123456789012-123456789012-ABCDEFghijklmnopQRSTUVwxyz';
-const MAILCHIMP_API_KEY = '1234567890abcdef1234567890abcdef-us20';
-const MAILCHIMP_API_KEY2 = '1234567890abcdef1234567890abcdef-us20';
+const STRIPE_API_KEY = process.env.STRIPE_API_KEY; // rotate this credential immediately and load from environment variable
+const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN; // rotate this credential immediately and load from environment variable
+const GITHUB_PERSONAL_ACCESS_TOKEN = process.env.GITHUB_PERSONAL_ACCESS_TOKEN; // rotate this credential immediately and load from environment variable
+const SLACK_BOT_TOKEN = process.env.SLACK_BOT_TOKEN; // rotate this credential immediately and load from environment variable
+const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY; // rotate this credential immediately and load from environment variable
+const MAILCHIMP_API_KEY2 = process.env.MAILCHIMP_API_KEY2; // rotate this credential immediately and load from environment variable
 
 
 // OAuth credentials
-const GOOGLE_OAUTH_CLIENT_SECRET = 'GOCSPX-1234567890abcdefghijklmnopqrstuvwxyz';
-const FACEBOOK_APP_SECRET = '1234567890abcdef1234567890abcdef';
+const GOOGLE_OAUTH_CLIENT_SECRET = process.env.GOOGLE_OAUTH_CLIENT_SECRET; // rotate this credential immediately and load from environment variable
+const FACEBOOK_APP_SECRET = process.env.FACEBOOK_APP_SECRET; // rotate this credential immediately and load from environment variable
 
 // JWT signing keys
-const JWT_SECRET = 'jwt_super_secret_key_for_signing_tokens_do_not_share';
-const PRIVATE_KEY = `-----BEGIN RSA PRIVATE KEY-----
-MIIEpAIBAAKCAQEA04up8hoqzS1+APIB0RhjXyObwHQnOzhAk5Bd7mhkSbPkyhP1
-xLEMg1u4XNRQ4h4qrU5XGbm4ahvOO4n9kdkvYOQT8k0UOJ0N9Q8/PNovUPVwi5JJ
-SwS0+YjAkh4YdDP8EwQPE4jxorx5m0eiKGLYFiZuD9FfofakXL8kUYQXIWte3CgF
-WeZxxzLBWekJYOD/5tJKESZgqjBSVwPgMpbNPDUPPTAhWBpgZcTHnQQnkNQJt73Z
-8erRtxKYSRz4bQh85MeKmq4h7D1pQSF8qHGjkGRQbt6hgY8JLHXKnGLIpPUdyMUB
-LmCArXqMdQoqzSFodlCRm4r6mRl/HJPBictX5QIDAQABAoIBAB6kF273P7l+95n5
-VS+H2lY91kVvougW3wbD72zsg+2KrjC83fMrS5P9GVlsH8jPQHqp/zLgWJ1/Bjgz
-pIqEww9vRh1MsKkQUr/pBKmrPzVxZkWOSdnRrYpYDAt9z0V0kTfFDFPYJjZ2DJp+
-IF1HLl/wilytXZZp0JqFQUlLMzK+hgiw9OwlOmK/o8coZ5SQRrkXcZR6AWXEJwRB
-Zl6hYCZDbgkpzBQ+88Mn4gE1oVUcJBSrEG6FzL9gOjO8fNaRaGf5jfYyFUjzjUPI
-JFzxoTK5xj7O8UvZQ8gVokIFuKcDXW/0k3VnUh6yJWgvMQRXHiXVGHY0LTHYxIVj
-zBBIh4ECgYEA9/XpNsMtRLoMLqb01zvylgLO1cKNkAmoVFhAnh9nH1n3v55Vt48h
-K9NkHUPbVwSIVdQxDzQy+YXw9IEjieVCBOPHTxRHfX7GhvlFBPp+84WId4IkybDc
-ExIGjK5EsJQQKddLX2ZqhzvzB/zKEwgQRbj0+lBl9aidWwZ5WBKbj1UCgYEA2lCP
-aG2V8YZwM5K4+W7q70CAn4TfPf7aZTiGGCzizNHhYFgXvNdRnE6wFHPAczWGUqTJ
-iamKgJgM59JR12X9GXWNu6xrXVaVU8lVtDyKMJzDB8+5jh6FzLDLgzXTJRzCgHSi
-08VbNwJZAGJQ5DfBYr4YRJEQc5jLOzMuXNqyebECgYEA0aIVql9A1q7bIJqYQxDB
-+2xaPcSgDNK9B6BcVLQHVG5c87zHnYi5TCGIiUgK6Bm9XNwZ6mRaULFdZVVhpMlJ
-dEXOTh08D1JLyRbKyNcaP4HWcpQ9ZK6YwHYU/0UHqDENF7kGCOAO8R4CfcFBCHyx
-ZBQ02iO9uCJVQXEyDqJ4SbUCgYEAqghfKtGZgX1Nkj5+S+wC+NN/XNvukDkej4FM
-7tKQ/UVTxTABnbr3jXCX01YUd0eo3SrZqYN5T7udCYrAd4ZJwQqZSY5BX5/Ys7P5
-fTU+zZpJ/Xj8qagHwzTQDGnbkYI9UvGxiG9U1yVCZ5W0Qsn5EfIUJzQLohL3hSl8
-SnZIcTECgYAydVb0THOx7rWNkNUGggc/++why61M6kYfGJW8C9HnXTJNsu6fG0xJ
-O5PWwJA7NBAf9aNx2N8c8G5JUPzLK8KqNatFMXnNNDl8/NCIHGUxS1kUQWKdJWTY
-aypLJ9nJocQMJy9Z2mW4N6MRl3X0Ei+7TXPdkgMqW5Cxpohx6v2Ihw==
------END RSA PRIVATE KEY-----`;
+const JWT_SECRET = process.env.JWT_SECRET; // rotate this credential immediately and load from environment variable
+const PRIVATE_KEY = process.env.PRIVATE_KEY; // rotate this credential immediately and load from environment variable
 
 // Encryption keys
-const ENCRYPTION_KEY = '12345678901234567890123456789012'; // 32-byte AES key
+const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY; // rotate this credential immediately and load from environment variable
 
 module.exports = {
   AWS_ACCESS_KEY_ID,
