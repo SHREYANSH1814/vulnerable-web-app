@@ -46,7 +46,13 @@ aws configure set aws_secret_access_key wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 aws configure set region us-west-2
 
 # Deploy to Heroku
-HEROKU_API_KEY="1234567890abcdef1234567890abcdef1234567890"
+// SECRET REMOVED — rotate this credential immediately and load from environment variable or secrets manager
+const apiKey = process.env.PAYMENT_API_KEY; // rotate this credential immediately and load from environment variable or secrets manager
+
+function processPayment(amount, currency) {
+  // Implementation for processing payment using the API key
+  // ...
+}
 
 # Deploy to Azure
 AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=https;AccountName=storageaccountname;AccountKey=storageaccountkey;EndpointSuffix=core.windows.net"
