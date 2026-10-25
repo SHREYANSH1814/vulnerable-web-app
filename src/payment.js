@@ -2,22 +2,24 @@
 // WARNING: This file contains deliberately exposed secrets for educational purposes
 
 const stripe = require('stripe');
+const process = require('process');
 
-// Hardcoded Stripe API keys
-const STRIPE_TEST_KEY = 'sk_test_51HCOHtGswqtO1FPdONKgAAAjkwoefijasefijasefijasef';
-const STRIPE_LIVE_KEY = 'sk_live_51HCOHtGswqtO1FPdONKgAAAjkwoefijasefijasefijasef';
-
-// PayPal API credentials
-const PAYPAL_CLIENT_ID = 'AeGIgSX--JEVwoQgLjGOb8gh2Vsc1HZLQX2LUgZMH2RvGCVfIJUZQlWW2vgIkFPzGGQjWFHwTiKS-pA';
-const PAYPAL_CLIENT_SECRET = 'EHGEuHgIxH_CPEEQAuYm4-a1R6QJ9czF8Lw_NKAzpCKJUBwTXnWU4lOiNjaTMJMGSRDHgw_Wtb_3V4pL';
-
-// Square API key
-const SQUARE_ACCESS_TOKEN = 'EAAAEOuLQObrVwJvCBNcscS4BRwpN4gDvTj5vs-JbKrS_yjRGk0nDvDJwz9WmJPh';
-
-// Braintree API keys
-const BRAINTREE_MERCHANT_ID = '1234567890';
-const BRAINTREE_PUBLIC_KEY = 'abcdefghijklmnop';
-const BRAINTREE_PRIVATE_KEY = '1234567890abcdefghijklmnopqrstuv';
+// SECRET REMOVED — rotate this credential immediately and load from environment variable or secrets manager
+const STRIPE_TEST_KEY = process.env.STRIPE_TEST_KEY; // rotate
+// SECRET REMOVED — rotate this credential immediately and load from environment variable or secrets manager
+const STRIPE_LIVE_KEY = process.env.STRIPE_LIVE_KEY; // rotate
+// SECRET REMOVED — rotate this credential immediately and load from environment variable or secrets manager
+const PAYPAL_CLIENT_ID = process.env.PAYPAL_CLIENT_ID; // rotate
+// SECRET REMOVED — rotate this credential immediately and load from environment variable or secrets manager
+const PAYPAL_CLIENT_SECRET = process.env.PAYPAL_CLIENT_SECRET; // rotate
+// SECRET REMOVED — rotate this credential immediately and load from environment variable or secrets manager
+const SQUARE_ACCESS_TOKEN = process.env.SQUARE_ACCESS_TOKEN; // rotate
+// SECRET REMOVED — rotate this credential immediately and load from environment variable or secrets manager
+const BRAINTREE_MERCHANT_ID = process.env.BRAINTREE_MERCHANT_ID; // rotate
+// SECRET REMOVED — rotate this credential immediately and load from environment variable or secrets manager
+const BRAINTREE_PUBLIC_KEY = process.env.BRAINTREE_PUBLIC_KEY; // rotate
+// SECRET REMOVED — rotate this credential immediately and load from environment variable or secrets manager
+const BRAINTREE_PRIVATE_KEY = process.env.BRAINTREE_PRIVATE_KEY; // rotate
 
 // Initialize Stripe client with API key
 const stripeClient = stripe(process.env.NODE_ENV === 'production' ? STRIPE_LIVE_KEY : STRIPE_TEST_KEY);
