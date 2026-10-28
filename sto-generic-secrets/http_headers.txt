@@ -1,0 +1,7 @@
+GET /api/v1/reports HTTP/1.1
+Host: reports.internal.acme-corp.net
+Authorization: Basic c3ZjX2RlcGxveTpXcTghelI0I3BMeDJUbTl2
+
+GET /api/v1/orders HTTP/1.1
+Host: orders.internal.acme-corp.net
+Authorization: Bearer 8f3kQz7LmP2vXr9TbN4wYc6HdJ1sGa5E
